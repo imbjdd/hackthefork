@@ -3,15 +3,11 @@ import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { Bar, BarChart } from "recharts"
-import { ChartConfig, ChartContainer } from "@/components/ui/chart"
 import ChartRadialStacked from "@/components/chart"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   type CarouselApi
 } from "@/components/ui/carousel"
 import { Pointer } from "@/components/magicui/pointer";
@@ -25,23 +21,15 @@ import {
 export default function Home() {
   const [api, setApi] = useState<CarouselApi>()
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [scrollPinkProgress, setScrollPinkProgress] = useState(0);
   const [scrollYellowProgress, setScrollYellowProgress] = useState(0);
   const orangeRef = useRef<HTMLDivElement>(null);
 
-  const [current, setCurrent] = useState(0)
-  const [count, setCount] = useState(0)
- 
   useEffect(() => {
     if (!api) {
       return
     }
- 
-    setCount(api.scrollSnapList().length)
-    setCurrent(api.selectedScrollSnap() + 1)
- 
+
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1)
     })
 
     console.log('meow')
@@ -65,7 +53,7 @@ export default function Home() {
     });
 
     // --- ORANGE PANEL ---
-    const orangepanel = gsap.from(".line-2", {
+    gsap.from(".line-2", {
       scrollTrigger: {
         trigger: ".orange",
         scrub: true,
@@ -139,8 +127,6 @@ export default function Home() {
       start: "top top",
       end: "+=200%",
     onUpdate: (self) => {
-      setScrollPinkProgress(self.progress)
-      
       console.log(api)
       if (api) {
         api.scrollTo(Math.floor(self.progress*api.containerNode().children.length))
@@ -165,23 +151,6 @@ export default function Home() {
       .from(".line-3", { scaleX: 0, transformOrigin: "left center", ease: "none" }, 0)
       .to(".purple", { backgroundColor: "#28a92b" }, 0);
 
-    // Fonction pour calculer la progression de scroll dans la section orange
-    function handleScroll() {
-      if (orangeRef.current) {
-        const rect = orangeRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const sectionHeight = rect.height;
-        // Distance parcourue depuis que le haut de la section touche le bas du viewport
-        const distance = windowHeight - rect.top;
-        const percent = Math.min(1, Math.max(0, distance / sectionHeight));
-        setScrollProgress(percent);
-      }
-    }
-
-    //window.addEventListener("scroll", handleScroll);
-    // Appel initial pour avoir la bonne valeur au chargement
-    //handleScroll();
-
     // iOS full-height bug workaround
     function readHeight() {
       if (ScrollTrigger.isScrolling()) {
@@ -189,7 +158,7 @@ export default function Home() {
       } else {
         ScrollTrigger.removeEventListener("scrollEnd", readHeight);
         window.removeEventListener("resize", readHeight);
-        let scrollFunc = ScrollTrigger.getScrollFunc(window),
+        const scrollFunc = ScrollTrigger.getScrollFunc(window),
           maxScroll = ScrollTrigger.maxScroll(window),
           scrollValue = (scrollFunc(0) as unknown as number) || 0,
           scrollProgress = maxScroll === 0 ? 0 : scrollValue / maxScroll,
@@ -218,83 +187,23 @@ export default function Home() {
     {
       name: "Salim Boujaddi",
       image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
+      description: "AI @ LinkPact | +7 Hackathon Prize Winner"
     },
     {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
+      name: "Carole Galissant",
+      image: "/Z6XH4AAVUNB4ZMGY4KBNXQQCWA.jpg",
+      description: "Presidente Commission Nutrition du SNRC"
     },
     {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
+      name: "Tom Bry-Chevalier",
+      image: "/Bry-Chevalier Tom.jpg",
+      description: "PhD candidate | economic and environmental stakes of alternative proteins"
     },
     {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
-    },
-    {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
-    },
-    {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
-    },
-    {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
-    },
-    {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
-    },
-    {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
-    },
-    {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
-    },
-    {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
-    },
-    {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
-    },
-    {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
-    },
-    {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
-    },
-    {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
-    },
-    {
-      name: "Salim Boujaddi",
-      image: "/1742235768480.jpeg",
-      description: "7 Hackathons Prize Winner"
-    },
+      name: "Guilhem Saïz",
+      image: "/Guilhem-Saiz.png",
+      description: "Postdoctoral researcher"
+    }
   ]
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
@@ -383,7 +292,7 @@ export default function Home() {
         <div className="container flex flex-col md:flex-row px-4 md:px-0">
           <div className="container mt-12 md:mt-24">
             <p className="text-xl md:text-2xl font-bold text-[#000091]">The Challenge</p>
-            <p className="text-lg md:text-2xl max-w-4xl">Rethink how we feed the planet. Livestock accounts for over 14% of global emissions. Can AI help us create better, cleaner proteins? In this hackathon, you'll combine Foodtech and artificial intelligence to imagine bold solutions for alt proteins, sustainability, and the future of food itself.</p>
+            <p className="text-lg md:text-2xl max-w-4xl">Rethink how we feed the planet. Livestock accounts for over 14% of global emissions. Can AI help us create better, cleaner proteins? In this hackathon, you&apos;ll combine Foodtech and artificial intelligence to imagine bold solutions for alt proteins, sustainability, and the future of food itself.</p>
           </div>
 
           <ChartRadialStacked progress={scrollProgress} />
@@ -413,13 +322,10 @@ export default function Home() {
             <Carousel setApi={setApi}>
               <CarouselContent>
                 <CarouselItem className="flex items-center justify-center">
-                  <Image src="/google-cloud-logo-1.png" alt="Place" width={400} height={400} />
+                  <Image src="/JGI_MASTER_COUNTRY_LOGO_WHITE_7_France.svg" alt="Jane Goodall Institute France" width={600} height={600} className="invert" />
                 </CarouselItem>
                 <CarouselItem className="flex items-center justify-center">
-                  <Image src="/google-cloud-logo-1.png" alt="Place" width={400} height={400} />
-                </CarouselItem>
-                <CarouselItem className="flex items-center justify-center">
-                  <Image src="/google-cloud-logo-1.png" alt="Place" width={400} height={400} />
+                  <Image src="/sciencepo.png" alt="Place" width={400} height={400} />
                 </CarouselItem>
               </CarouselContent>
             </Carousel>
@@ -439,13 +345,14 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {speakers.map((speaker) => (
               <div key={speaker.name} className="flex flex-col gap-4">
-                <div className="relative overflow-hidden rounded-lg">
+                <div className="relative overflow-hidden rounded-lg aspect-square">
                   <Image 
-                    className="rounded-lg w-full transition-transform duration-300 hover:scale-110" 
+                    className="rounded-lg w-full h-full object-cover transition-transform duration-300 hover:scale-110" 
                     src={speaker.image} 
                     alt="Speaker" 
                     width={400} 
-                    height={400} 
+                    height={400}
+                    style={{aspectRatio: "1/1"}}
                   />
                 </div>
                 <p className="text-base md:text-lg font-bold">{speaker.name}</p>
@@ -455,7 +362,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <section id="faq" className="flex items-center justify-center gap-12 px-4 md:px-0">
+      <div id="faq" className="min-h-screen py-12 flex items-center justify-center gap-12 px-4 md:px-0">
         <div className="max-w-5xl w-full flex flex-col gap-12">
         <p className="text-xl md:text-2xl font-bold text-[#000091]">FAQ</p>
         <Accordion
@@ -464,33 +371,115 @@ export default function Home() {
           className="w-full"
           defaultValue="item-1"
         >
-        <AccordionItem value="item-1">
-          <AccordionTrigger className="text-lg">What is the hackathon about?</AccordionTrigger>
-          <AccordionContent className="flex flex-col gap-4 text-balance">
-            <p>
-              The hackathon is about building solutions for the future of food. You can build anything you want, as long as it's related to the future of food.
-            </p>
-          </AccordionContent>
-         </AccordionItem>
-         <AccordionItem value="item-2">
-          <AccordionTrigger className="text-lg">Is it free to participate?</AccordionTrigger>
-          <AccordionContent className="flex flex-col gap-4 text-balance">
-            <p>
-              Yes, it is free to participate.
-            </p>
-          </AccordionContent>
-         </AccordionItem>
-         <AccordionItem value="item-3">
-          <AccordionTrigger className="text-lg">Is it open to everyone?</AccordionTrigger>
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="text-lg">Is Hack The Fork free to attend?</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>
-                Yes, it is open to everyone.
-              </p>
+              <p>Yes! Food will be provided for the duration of the event. We will also have swag and prizes!</p>
             </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+          </AccordionItem>
+
+          <AccordionItem value="item-2">
+            <AccordionTrigger className="text-lg">Where is the event? Is it in person or virtual? Where can I park?</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>The event is located in the XXXX Building at STREET ADDRESS.</p>
+              <p>You can park in Lot X,Y, Z which you can see on this campus parking site - LINK</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-3">
+            <AccordionTrigger className="text-lg">Who can attend? What if I don&apos;t have any experience? Do I have to be 18?</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>This event is open to any students. It is beginner friendly, with workshops to help you learn during the event, and mentors available to help you as you work on your project.</p>
+              <p>Attendees must be at least 13 years old due to child privacy laws. If under 18, you will need to fill out this liability form from the university to participate - LINK.</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-4">
+            <AccordionTrigger className="text-lg">What is the team size limit?</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>Teams should be between 1 and 4 people. We will have a team building activity right after opening ceremony if you&apos;d like to find team members!</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-5">
+            <AccordionTrigger className="text-lg">Are there travel reimbursements?</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>We are not able to provide travel reimbursements at this time.</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-6">
+            <AccordionTrigger className="text-lg">What should I bring?</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>Your laptop, charger, headphones, deodorant, and a pillow/blanket.</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-7">
+            <AccordionTrigger className="text-lg">When can we start working on our project? Can I work on a previous project?</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>You cannot start until after opening ceremony. You may come up with ideas, but are not allowed to start coding. You cannot work on a previous project, but can use frameworks if you clearly credit them in your readme and differentiate what you made vs what you used.</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-8">
+            <AccordionTrigger className="text-lg">How many challenges can I apply for?</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>As many as you want!</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-9">
+            <AccordionTrigger className="text-lg">Do I have to stay overnight?</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>No, you can leave and come back if you would prefer.</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-10">
+            <AccordionTrigger className="text-lg">What kind of activities will there be?</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>We will post the schedule closer to the event. There will be workshops and activities to take a break and meet other hackers and our wonderful sponsors.</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-11">
+            <AccordionTrigger className="text-lg">What is a hackathon?</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>A hackathon is an event where students &quot;hack&quot; together and create an app, website, game, etc. in 24-48 hours. There will be no malicious &quot;hacking&quot;.</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-12">
+            <AccordionTrigger className="text-lg">Will hardware be available?</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>We do not have hardware available, but you are welcome to bring your own. Due to building fire codes, soldering kits are not allowed in the venue.</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-13">
+            <AccordionTrigger className="text-lg">Are you sending out acceptances? Is there a deadline to apply? Is there a waitlist?</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>We will send out acceptances XX days before the event. If you need earlier confirmation to book travel, please reach out to our team at EMAIL ADDRESS. Applications will close once we reach the maximum amount of hackers we can support, but we will open a waitlist on the day of the event for any local hackers who want to fill the spots of any accepted hackers who do not end up attending.</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-14">
+            <AccordionTrigger className="text-lg">How do I sign up to be a mentor/judge/volunteer?</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>You can sign up here - LINK</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-15">
+            <AccordionTrigger className="text-lg">I have a different question!</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              <p>Email us at EMAIL ADDRESS!</p>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

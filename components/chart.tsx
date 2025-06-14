@@ -1,16 +1,7 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
 import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts"
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 import {
   ChartConfig,
   ChartContainer,
@@ -37,7 +28,6 @@ export default function ChartRadialStacked({ progress = 0 }: { progress?: number
   const value = Math.round(progress * max);
   // On répartit la valeur sur desktop/mobile (ex: 70% desktop, 30% mobile)
   const chartData = [{ month: "progress", mobile: Math.round(value * 0.145), desktop: Math.round(max-value * 0.145) }];
-  const totalVisitors = chartData[0].desktop + chartData[0].mobile;
 
   return (
     <ChartContainer
