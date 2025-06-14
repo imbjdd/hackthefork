@@ -309,53 +309,51 @@ export default function Home() {
       `}</style>
 
       <nav className="flex w-screen justify-between backdrop-blur-xl bg-white/80 items-center fixed top-0 left-0 right-0 z-50 py-4">
-        <div className="container flex flex-row justify-between items-center mx-auto">
+        <div className="container flex flex-row justify-between items-center mx-auto px-4 md:px-0">
         <div className="flex flex-row items-center gap-4 justify-between w-full">
-          <h1 className="text-lg font-bold text-[#000091]">Hack_the_Fork<span className="text-sm font-light italic animate-pulse">_2025</span></h1>
-          <div className="text-lg bg-[#000091] text-white px-4 py-2 rounded-lg font-bold"><a target="_blank" href="https://lu.ma/6vtlc0y1">Participate</a></div>
+          <h1 className="text-base md:text-lg font-bold text-[#000091]">Hack_the_Fork<span className="text-xs md:text-sm font-light italic animate-pulse">_2025</span></h1>
+          <div className="text-base md:text-lg bg-[#000091] text-white px-3 md:px-4 py-2 rounded-lg font-bold"><a target="_blank" href="https://lu.ma/6vtlc0y1">Participate</a></div>
         </div>
         </div>
       </nav>
 
 
       <section className="bg-white flex flex-col items-center justify-center">
-        <div className="container flex flex-col gap-4">
-          <p className="text-lg font-bold text-[#000091]">8-9 November 2025</p>
+        <div className="container flex flex-col gap-4 px-4 md:px-0">
+          <p className="text-base md:text-lg font-bold text-[#000091]">8-9 November 2025</p>
           <div className="flex flex-col">
-            <h1 className="text-8xl font-bold">Time to build</h1>
-            <h1 className="text-8xl font-light italic -mt-4">a new way to eat</h1>
+            <h1 className="text-5xl md:text-8xl font-bold">Time to build</h1>
+            <h1 className="text-5xl md:text-8xl font-light italic -mt-2 md:-mt-4">a new way to eat</h1>
           </div>
         </div>
 
-        <div className="absolute container justify-end w-full flex">
- 
-<svg width="735" height="341" viewBox="0 0 735 341" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-<rect width="735" height="341" fill="url(#pattern0_8_52)"/>
-<defs>
-<pattern id="pattern0_8_52" patternContentUnits="objectBoundingBox" width="0.0816327" height="0.175953">
-<use xlinkHref="#image0_8_52" transform="scale(0.00136054 0.00293255)"/>
-</pattern>
-<image id="image0_8_52" width="60" height="60" preserveAspectRatio="none" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABeSURBVHgB7dgxEYBAEATBfwyjBcVg4gIYuh1M1Ua717jrXqPOvQYd62cE1wmuE1wnuE5wneA6wXWC6wTX7bd/UNNMuk5wneA6wXWC6wTXCa4TXCe47nfBAAAAAPA1DyQpBE82YFfQAAAAAElFTkSuQmCC"/>
-</defs>
-</svg>
-
+        <div className="absolute container justify-end w-full flex hidden md:flex"> 
+          <svg width="735" height="341" viewBox="0 0 735 341" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+          <rect width="735" height="341" fill="url(#pattern0_8_52)"/>
+          <defs>
+          <pattern id="pattern0_8_52" patternContentUnits="objectBoundingBox" width="0.0816327" height="0.175953">
+          <use xlinkHref="#image0_8_52" transform="scale(0.00136054 0.00293255)"/>
+          </pattern>
+          <image id="image0_8_52" width="60" height="60" preserveAspectRatio="none" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABeSURBVHgB7dgxEYBAEATBfwyjBcVg4gIYuh1M1Ua717jrXqPOvQYd62cE1wmuE1wnuE5wneA6wXWC6wTX7bd/UNNMuk5wneA6wXWC6wTXCa4TXCe47nfBAAAAAPA1DyQpBE82YFfQAAAAAElFTkSuQmCC"/>
+          </defs>
+          </svg>
         </div>
-        <div className="container justify-end absolute bottom-12 mx-auto flex flex-row gap-4 mt-12">
-          <h1 className="text-4xl font-bold"><span className="text-[#000091]">150</span> Builders</h1>
-          <h1 className="text-4xl font-bold">-</h1>
-          <h1 className="text-4xl font-bold"><span className="text-[#000091]">$3000</span> Cash Prize</h1>
+        <div className="container justify-end absolute bottom-6 md:bottom-12 mx-auto flex flex-row gap-2 md:gap-4 mt-12 px-4 md:px-0">
+          <h1 className="text-2xl md:text-4xl font-bold"><span className="text-[#000091]">150</span> Builders</h1>
+          <h1 className="text-2xl md:text-4xl font-bold">-</h1>
+          <h1 className="text-2xl md:text-4xl font-bold"><span className="text-[#000091]">$3000</span> Cash Prize</h1>
         </div>
       </section>
-      <section ref={orangeRef} className="orange flex flex-col items-center justify-center gap-12">
-        <div className="container text-center">
-          <h1 className="text-6xl font-bold">A Challenge</h1>
-          <h1 className="text-6xl font-light italic">for the Future of Food</h1>
+      <section ref={orangeRef} className="orange flex flex-col items-center justify-center gap-6 md:gap-12">
+        <div className="container text-center px-4 md:px-0">
+          <h1 className="text-4xl md:text-6xl font-bold">A Challenge</h1>
+          <h1 className="text-4xl md:text-6xl font-light italic">for the Future of Food</h1>
         </div>
 
-        <div className="container flex">
-          <div className="container mt-24">
-            <p className="text-2xl font-bold text-[#000091]">The Challenge</p>
-            <p className="text-2xl max-w-4xl">Rethink how we feed the planet. Livestock accounts for over 14% of global emissions. Can AI help us create better, cleaner proteins? In this hackathon, you'll combine Foodtech and artificial intelligence to imagine bold solutions for alt proteins, sustainability, and the future of food itself.</p>
+        <div className="container flex flex-col md:flex-row px-4 md:px-0">
+          <div className="container mt-12 md:mt-24">
+            <p className="text-xl md:text-2xl font-bold text-[#000091]">The Challenge</p>
+            <p className="text-lg md:text-2xl max-w-4xl">Rethink how we feed the planet. Livestock accounts for over 14% of global emissions. Can AI help us create better, cleaner proteins? In this hackathon, you'll combine Foodtech and artificial intelligence to imagine bold solutions for alt proteins, sustainability, and the future of food itself.</p>
           </div>
 
           <ChartRadialStacked progress={scrollProgress} />
@@ -405,12 +403,12 @@ export default function Home() {
         </div>
         <p className="text-2xl max-w-4xl">The event will take place at <span className="font-bold text-[#000091]">Albert School</span> in Paris, France.</p>
       </section>
-      <div className="flex min-h-screen flex-col items-center justify-center gap-12">
+      <div className="flex min-h-screen flex-col items-center justify-center gap-12 px-4 md:px-0">
         <div className="container flex flex-col gap-4">
-          <p className="text-2xl font-bold text-[#000091]">Speakers & Mentors</p>
-          <div className="grid grid-cols-5 gap-4">
+          <p className="text-xl md:text-2xl font-bold text-[#000091]">Speakers & Mentors</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {speakers.map((speaker) => (
-              <div className="flex flex-col gap-4">
+              <div key={speaker.name} className="flex flex-col gap-4">
                 <div className="relative overflow-hidden rounded-lg">
                   <Image 
                     className="rounded-lg w-full transition-transform duration-300 hover:scale-110" 
@@ -420,16 +418,16 @@ export default function Home() {
                     height={400} 
                   />
                 </div>
-                <p className="text-lg font-bold">{speaker.name}</p>
-                <p className="text-black/50">{speaker.description}</p>
+                <p className="text-base md:text-lg font-bold">{speaker.name}</p>
+                <p className="text-sm md:text-base text-black/50">{speaker.description}</p>
               </div>
             ))}
           </div>
         </div>
       </div>
-      <section className="flex items-center justify-center gap-12">
+      <section className="flex items-center justify-center gap-12 px-4 md:px-0">
         <div className="max-w-5xl w-full flex flex-col gap-12">
-        <p className="text-2xl font-bold text-[#000091]">FAQ</p>
+        <p className="text-xl md:text-2xl font-bold text-[#000091]">FAQ</p>
         <Accordion
           type="single"
           collapsible
