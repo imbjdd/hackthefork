@@ -297,8 +297,29 @@ export default function Home() {
     },
   ]
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    if (sectionId === 'top') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      return;
+    }
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const offset = 80; // Ajustez cette valeur selon la hauteur de votre navbar
+      const sectionTop = section.getBoundingClientRect().top + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: sectionTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <div style={{ fontFamily: 'system-ui, sans-serif' }}>
+    <div style={{ fontFamily: 'system-ui, sans-serif' }} className="scroll-smooth">
       <style>{`
         :root { --full-height: 100vh; }
         section { height: var(--full-height);position: relative; }
@@ -311,7 +332,16 @@ export default function Home() {
       <nav className="flex w-screen justify-between backdrop-blur-xl bg-white/80 items-center fixed top-0 left-0 right-0 z-50 py-4">
         <div className="container flex flex-row justify-between items-center mx-auto px-4 md:px-0">
         <div className="flex flex-row items-center gap-4 justify-between w-full">
-          <h1 className="text-base md:text-lg font-bold text-[#000091]">Hack_the_Fork<span className="text-xs md:text-sm font-light italic animate-pulse">_2025</span></h1>
+          <a href="#top" onClick={(e) => scrollToSection(e, 'top')} className="cursor-pointer">
+            <h1 className="text-base md:text-lg font-bold text-[#000091]">Hack_the_Fork<span className="text-xs md:text-sm font-light italic animate-pulse">_2025</span></h1>
+          </a>
+          
+          <div className="hidden md:flex items-center gap-8">
+            <a href="#challenge" onClick={(e) => scrollToSection(e, 'challenge')} className="text-[#000091] hover:text-[#000091]/80 transition-colors">Challenge</a>
+            <a href="#speakers" onClick={(e) => scrollToSection(e, 'speakers')} className="text-[#000091] hover:text-[#000091]/80 transition-colors">Speakers</a>
+            <a href="#faq" onClick={(e) => scrollToSection(e, 'faq')} className="text-[#000091] hover:text-[#000091]/80 transition-colors">FAQ</a>
+          </div>
+
           <div className="text-base md:text-lg bg-[#000091] text-white px-3 md:px-4 py-2 rounded-lg font-bold"><a target="_blank" href="https://lu.ma/6vtlc0y1">Participate</a></div>
         </div>
         </div>
@@ -344,7 +374,7 @@ export default function Home() {
           <h1 className="text-2xl md:text-4xl font-bold"><span className="text-[#000091]">$3000</span> Cash Prize</h1>
         </div>
       </section>
-      <section ref={orangeRef} className="orange flex flex-col items-center justify-center gap-6 md:gap-12">
+      <section ref={orangeRef} id="challenge" className="orange flex flex-col items-center justify-center gap-6 md:gap-12">
         <div className="container text-center px-4 md:px-0">
           <h1 className="text-4xl md:text-6xl font-bold">A Challenge</h1>
           <h1 className="text-4xl md:text-6xl font-light italic">for the Future of Food</h1>
@@ -403,7 +433,7 @@ export default function Home() {
         </div>
         <p className="text-2xl max-w-4xl">The event will take place at <span className="font-bold text-[#000091]">Albert School</span> in Paris, France.</p>
       </section>
-      <div className="flex min-h-screen flex-col items-center justify-center gap-12 px-4 md:px-0">
+      <div id="speakers" className="flex min-h-screen flex-col items-center justify-center gap-12 px-4 md:px-0">
         <div className="container flex flex-col gap-4">
           <p className="text-xl md:text-2xl font-bold text-[#000091]">Speakers & Mentors</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -425,7 +455,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <section className="flex items-center justify-center gap-12 px-4 md:px-0">
+      <section id="faq" className="flex items-center justify-center gap-12 px-4 md:px-0">
         <div className="max-w-5xl w-full flex flex-col gap-12">
         <p className="text-xl md:text-2xl font-bold text-[#000091]">FAQ</p>
         <Accordion
