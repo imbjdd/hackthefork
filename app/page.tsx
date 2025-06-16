@@ -187,7 +187,7 @@ export default function Home() {
     {
       name: "Salim Boujaddi",
       image: "/1742235768480.jpeg",
-      description: "AI @ LinkPact | +7 Hackathon Prize Winner"
+      description: "AI @ LinkPact | +7 Hackathon Prize Winner"
     },
     {
       name: "Carole Galissant",
@@ -239,7 +239,7 @@ export default function Home() {
       `}</style>
 
       <nav className="flex w-screen justify-between backdrop-blur-xl bg-white/80 items-center fixed top-0 left-0 right-0 z-50 py-4">
-        <div className="container flex flex-row justify-between items-center mx-auto px-4 md:px-0">
+        <div className="container flex flex-row justify-between items-center mx-auto px-4 md:px-8 xl:px-12">
         <div className="flex flex-row items-center gap-4 justify-between w-full">
           <a href="#top" onClick={(e) => scrollToSection(e, 'top')} className="cursor-pointer">
             <h1 className="text-base md:text-lg font-bold text-[#000091]">Hack_the_Fork<span className="text-xs md:text-sm font-light italic animate-pulse">_2025</span></h1>
@@ -257,17 +257,17 @@ export default function Home() {
       </nav>
 
 
-      <section className="bg-white flex flex-col items-center justify-center">
-        <div className="container flex flex-col gap-4 px-4 md:px-0">
+      <section className="bg-white flex flex-col items-center justify-center min-h-screen">
+        <div className="container flex flex-col gap-4 px-4 md:px-8 xl:px-12">
           <p className="text-base md:text-lg font-bold text-[#000091]">8-9 November 2025</p>
           <div className="flex flex-col">
-            <h1 className="text-5xl md:text-8xl font-bold">Time to build</h1>
-            <h1 className="text-5xl md:text-8xl font-light italic -mt-2 md:-mt-4">a new way to eat</h1>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-bold">Time to build</h1>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-light italic -mt-2 md:-mt-4">a new way to eat</h1>
           </div>
         </div>
 
         <div className="absolute container justify-end w-full flex hidden md:flex"> 
-          <svg width="735" height="341" viewBox="0 0 735 341" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+          <svg width="735" height="341" viewBox="0 0 735 341" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="w-[400px] md:w-[500px] xl:w-[600px] 2xl:w-[735px]">
           <rect width="735" height="341" fill="url(#pattern0_8_52)"/>
           <defs>
           <pattern id="pattern0_8_52" patternContentUnits="objectBoundingBox" width="0.0816327" height="0.175953">
@@ -277,33 +277,33 @@ export default function Home() {
           </defs>
           </svg>
         </div>
-        <div className="container justify-end absolute bottom-6 md:bottom-12 mx-auto flex flex-row gap-2 md:gap-4 mt-12 px-4 md:px-0">
-          <h1 className="text-2xl md:text-4xl font-bold"><span className="text-[#000091]">150</span> Builders</h1>
-          <h1 className="text-2xl md:text-4xl font-bold">-</h1>
-          <h1 className="text-2xl md:text-4xl font-bold"><span className="text-[#000091]">$3000</span> Cash Prize</h1>
+        <div className="container justify-end md:absolute bottom-6 md:bottom-12 mx-auto flex flex-row gap-2 md:gap-4 mt-12 px-4 md:px-8 xl:px-12">
+          <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold"><span className="text-[#000091]">150</span> Builders</h1>
+          <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold">-</h1>
+          <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold"><span className="text-[#000091]">$3000</span> Cash Prize</h1>
         </div>
       </section>
       <section ref={orangeRef} id="challenge" className="orange flex flex-col items-center justify-center gap-6 md:gap-12">
-        <div className="container text-center px-4 md:px-0">
-          <h1 className="text-4xl md:text-6xl font-bold">A Challenge</h1>
-          <h1 className="text-4xl md:text-6xl font-light italic">for the Future of Food</h1>
+        <div className="container text-center px-4 md:px-8 xl:px-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold">A Challenge</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-light italic">for the Future of Food</h1>
         </div>
 
-        <div className="container flex flex-col md:flex-row px-4 md:px-0">
+        <div className="container flex flex-col md:flex-row px-4 md:px-8 xl:px-12">
           <div className="container mt-12 md:mt-24">
-            <p className="text-xl md:text-2xl font-bold text-[#000091]">The Challenge</p>
-            <p className="text-lg md:text-2xl max-w-4xl">Rethink how we feed the planet. Livestock accounts for over 14% of global emissions. Can AI help us create better, cleaner proteins? In this hackathon, you&apos;ll combine Foodtech and artificial intelligence to imagine bold solutions for alt proteins, sustainability, and the future of food itself.</p>
+            <p className="text-lg md:text-xl xl:text-2xl font-bold text-[#000091]">The Challenge</p>
+            <p className="text-base md:text-lg xl:text-2xl max-w-4xl">Rethink how we feed the planet. Livestock accounts for over 14% of global emissions. Can AI help us create better, cleaner proteins? In this hackathon, you&apos;ll combine Foodtech and artificial intelligence to imagine bold solutions for alt proteins, sustainability, and the future of food itself.</p>
           </div>
 
           <ChartRadialStacked progress={scrollProgress} />
         </div>
       </section>
       <section className="vroom flex flex-col items-center justify-center gap-12">
-        <div className="container flex items-center justify-center">
+        <div className="container flex items-center justify-center px-4 md:px-8 xl:px-12">
           <div className="flex flex-col gap-8 text-center max-w-4xl">
             <p className="text-2xl font-bold text-[#000091]">Organized by</p>
             <div className="flex flex-row gap-4 justify-center">
-              <svg preserveAspectRatio="xMidYMid meet" data-bbox="24.122 11.028 583.878 337.747" viewBox="24.122 11.028 583.878 337.747" height={122*(scrollYellowProgress+1)} width={208*(scrollYellowProgress+1)} xmlns="http://www.w3.org/2000/svg" data-type="shape" role="presentation" aria-hidden="true" aria-label="">
+              <svg preserveAspectRatio="xMidYMid meet" data-bbox="24.122 11.028 583.878 337.747" viewBox="24.122 11.028 583.878 337.747" height={122*(scrollYellowProgress+0.5)} width={208*(scrollYellowProgress+0.5)} xmlns="http://www.w3.org/2000/svg" data-type="shape" role="presentation" aria-hidden="true" aria-label="">
                   <g>
                       <path d="M58.1 12.1c-6.4 1.2-16.2 6.1-20.9 10.3-16.8 15.2-17.5 42.8-1.6 58.1 9.6 9.1 19.4 12.9 33.9 12.9 17.1 0 30.1-6.3 39.1-18.9 7-9.9 8.4-27.3 3.2-38.7-8.4-18.2-31-28.2-53.7-23.7"></path>
                       <path d="M244 107.1c-15.6 1.8-33.3 8.3-46.2 17-8.1 5.5-21.3 18.6-26.8 26.8-15.1 22.5-21.4 45.1-21.4 77.1 0 26.1 3.7 43.6 13 62.2 7.6 15.2 20.3 30.3 33 39.4 30.4 21.8 76.2 25.4 111.3 8.8 17-8 31.3-20.7 40.9-36.3 4.8-7.9 10.3-22.4 11.7-30.7l.6-4.1-14.3-.7c-7.9-.3-18.1-.9-22.8-1.2l-8.6-.6-1.8 5.8c-6.1 19.6-19.5 32.6-38.3 37-5 1.2-9.7 1.5-17.8 1.1-17.4-.8-27-4.9-38.5-16.6-11.5-11.6-17.4-24.6-20.5-45.1-5.4-35.2 3.7-69.2 23.1-86.9 16.5-15.1 44.8-18.5 66.4-7.9 12 5.8 22.8 19.2 26.1 32.2.6 2.6 1.4 4.8 1.8 5 1 .5 43.9-1.9 44.5-2.5 1.1-1.1-3.6-17.5-7.3-25.5-5-10.5-8.9-16.2-17-24.8-21.9-22.8-55.2-33.6-91.1-29.5"></path>
@@ -316,7 +316,7 @@ export default function Home() {
         </div>
       </section>
       <section className="meow flex flex-col items-center justify-center gap-12">
-        <div className="container flex items-center justify-center">
+        <div className="container flex items-center justify-center px-4 md:px-8 xl:px-12">
           <div className="flex flex-col gap-8 text-center max-w-4xl items-center justify-center">
             <p className="text-2xl font-bold text-[#000091]">Sponsored by</p>
             <Carousel setApi={setApi}>
@@ -333,14 +333,14 @@ export default function Home() {
         </div>
       </section>
       <section className="flex flex-col items-center justify-center gap-12">
-        <div>
+        <div className="container px-4 md:px-8 xl:px-12 flex items-center justify-center">
           <Pointer className="fill-[#000091]" />
           <Image className="rounded-lg max-w-5xl w-full" src="/albertschool.jpg" alt="Place" width={1000} height={1000} />
         </div>
-        <p className="text-2xl max-w-4xl">The event will take place at <span className="font-bold text-[#000091]">Albert School</span> in Paris, France.</p>
+        <p className="text-2xl max-w-4xl px-4 md:px-8 xl:px-12">The event will take place at <span className="font-bold text-[#000091]">Albert School</span> in Paris, France.</p>
       </section>
-      <div id="speakers" className="flex min-h-screen flex-col items-center justify-center gap-12 px-4 md:px-0">
-        <div className="container flex flex-col gap-4">
+      <div id="speakers" className="flex min-h-screen flex-col items-center justify-center gap-12">
+        <div className="container flex flex-col gap-4 px-4 md:px-8 xl:px-12">
           <p className="text-xl md:text-2xl font-bold text-[#000091]">Speakers & Mentors</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {speakers.map((speaker) => (
@@ -362,8 +362,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div id="faq" className="min-h-screen py-12 flex items-center justify-center gap-12 px-4 md:px-0">
-        <div className="max-w-5xl w-full flex flex-col gap-12">
+      <div id="faq" className="min-h-screen py-12 flex items-center justify-center gap-12">
+        <div className="max-w-5xl w-full flex flex-col gap-12 px-4 md:px-8 xl:px-12">
         <p className="text-xl md:text-2xl font-bold text-[#000091]">FAQ</p>
         <Accordion
           type="single"
