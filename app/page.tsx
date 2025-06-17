@@ -22,6 +22,7 @@ export default function Home() {
   const [api, setApi] = useState<CarouselApi>()
   const [scrollProgress, setScrollProgress] = useState(0);
   const [scrollYellowProgress, setScrollYellowProgress] = useState(0);
+  const [imagepsahtek, setImagepsahtek] = useState<string>("/1742235768480.jpeg");
   const orangeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -35,6 +36,18 @@ export default function Home() {
     console.log('meow')
     console.log(api.selectedScrollSnap())
   }, [api])
+
+  useEffect(() => {
+    let i = 0
+    const interval = setInterval(() => {
+      setImagepsahtek(speakers[i].image)
+      i++
+      if (i >= speakers.length) {
+        i = 0
+      }
+    }, 1200)
+    return () => clearInterval(interval)
+  }, [])
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -238,7 +251,20 @@ export default function Home() {
         .line-1, .line-2, .line-3 { width: 80vw; max-width: 600px; height: 6px; background: #fff; margin: 32px 0; border-radius: 3px; }
       `}</style>
 
-      <nav className="flex w-screen justify-between backdrop-blur-xl bg-white/80 items-center fixed top-0 left-0 right-0 z-50 py-4">
+      <Pointer className="z-50">
+        <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="12" cy="12" r="10" className="fill-[#000091]" />
+            <circle cx="12" cy="12" r="5" className="fill-white" />
+          </svg>
+      </Pointer>
+
+      <nav className="flex w-screen border-b justify-between backdrop-blur-xl bg-white/80 items-center fixed top-0 left-0 right-0 z-40 py-4">
         <div className="container flex flex-row justify-between items-center mx-auto px-4 md:px-8 xl:px-12">
         <div className="flex flex-row items-center gap-4 justify-between w-full">
           <a href="#top" onClick={(e) => scrollToSection(e, 'top')} className="cursor-pointer">
@@ -257,32 +283,38 @@ export default function Home() {
       </nav>
 
 
-      <section className="bg-white flex flex-col items-center justify-center min-h-screen">
-        <div className="container flex flex-col gap-4 px-4 md:px-8 xl:px-12">
-          <p className="text-base md:text-lg font-bold text-[#000091]">8-9 November 2025</p>
-          <div className="flex flex-col">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-bold">Time to build</h1>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-light italic -mt-2 md:-mt-4">a new way to eat</h1>
-          </div>
-        </div>
-
-        <div className="absolute container justify-end w-full flex hidden md:flex"> 
-          <svg width="735" height="341" viewBox="0 0 735 341" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="w-[400px] md:w-[500px] xl:w-[600px] 2xl:w-[735px]">
-          <rect width="735" height="341" fill="url(#pattern0_8_52)"/>
-          <defs>
-          <pattern id="pattern0_8_52" patternContentUnits="objectBoundingBox" width="0.0816327" height="0.175953">
-          <use xlinkHref="#image0_8_52" transform="scale(0.00136054 0.00293255)"/>
-          </pattern>
-          <image id="image0_8_52" width="60" height="60" preserveAspectRatio="none" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABeSURBVHgB7dgxEYBAEATBfwyjBcVg4gIYuh1M1Ua717jrXqPOvQYd62cE1wmuE1wnuE5wneA6wXWC6wTX7bd/UNNMuk5wneA6wXWC6wTXCa4TXCe47nfBAAAAAPA1DyQpBE82YFfQAAAAAElFTkSuQmCC"/>
-          </defs>
+      <div className="bg-white flex flex-col items-center justify-center min-h-screen md:h-screen pt-24 pb-48 md:pt-0 md:pb-0">
+        <div className="container h-fit flex flex-col justify-center items-center gap-4 px-4 md:px-8 xl:px-12">
+          <div className="flex flex-col text-center">
+            <div className="flex items-center justify-center gap-8 flex-col md:flex-row">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl 2xl:text-9xl font-bold">Time to</h1>
+              <div className="relative">
+                <img src={imagepsahtek} alt="build" className="w-24 h-24 md:w-32 md:h-32 xl:w-36 xl:h-36 aspect-square -rotate-12 rounded-xl" />
+                <Pointer className="z-50">
+        <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="12" cy="12" r="10" className="fill-black" />
+            <circle cx="12" cy="12" r="5" className="fill-white" />
           </svg>
+      </Pointer>
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl 2xl:text-9xl font-bold">Build</h1>
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-light italic -mt-2 md:-mt-2">a new way to eat</h1>
+          </div>
+          <p className="text-base md:text-lg font-bold text-[#000091]">8-9 November 2025</p>
         </div>
-        <div className="container justify-end md:absolute bottom-6 md:bottom-12 mx-auto flex flex-row gap-2 md:gap-4 mt-12 px-4 md:px-8 xl:px-12">
+        <div className="container justify-center md:justify-end md:absolute md:bottom-6 md:bottom-12 mx-auto flex flex-row gap-2 md:gap-4 mt-12 px-4 md:px-8 xl:px-12">
           <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold"><span className="text-[#000091]">150</span> Builders</h1>
           <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold">-</h1>
           <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold"><span className="text-[#000091]">$3000</span> Cash Prize</h1>
         </div>
-      </section>
+      </div>
       <section ref={orangeRef} id="challenge" className="orange flex flex-col items-center justify-center gap-6 md:gap-12">
         <div className="container text-center px-4 md:px-8 xl:px-12">
           <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold">A Challenge</h1>
