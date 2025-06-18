@@ -52,6 +52,16 @@ export default function Home() {
 
   const speakers = [
     {
+      name: "Simon Nordmann",
+      image: "/FAIRSHOT_-03012025_-_12h24-_A7403709.jpg",
+      description: "Director | Institut de la Condition Animale"
+    },
+    {
+      name: "Alice Pjie",
+      image: "/Alice.jpg",
+      description: "Adjoint director | Institut de la Condition Animale"
+    },
+    {
       name: "Salim Boujaddi",
       image: "/1742235768480.jpeg",
       description: "AI @ LinkPact | +7 Hackathon Prize Winner"

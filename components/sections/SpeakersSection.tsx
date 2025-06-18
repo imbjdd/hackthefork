@@ -11,7 +11,7 @@ export default function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
   return (
     <div id="speakers" className="flex min-h-screen flex-col items-center justify-center gap-12">
       <div className="container flex flex-col gap-4 px-4 md:px-8 xl:px-12">
-        <p className="text-xl md:text-2xl font-bold text-[#000091]">Speakers & Mentors</p>
+        <p className="text-xl md:text-2xl font-bold text-[#000091]">Speakers, Mentors & Organizers</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {speakers.map((speaker) => (
             <div key={speaker.name} className="flex flex-col gap-4">
