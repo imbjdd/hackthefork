@@ -32,13 +32,14 @@ export default function ChartRadialStacked({ progress = 0 }: { progress?: number
   return (
     <ChartContainer
       config={chartConfig}
-      className="w-full aspect-square max-w-[300px] h-fit mt-24 items-center justify-center flex"
+      className="w-full aspect-square max-w-[300px] h-48"
     >
       <RadialBarChart
         data={chartData}
         endAngle={180}
         innerRadius={80}
         outerRadius={130}
+        className="transform translate-y-1/2 flex items-center justify-center"
       >
         <ChartTooltip
           cursor={false}
