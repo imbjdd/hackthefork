@@ -138,3 +138,7 @@
     --chart-5: oklch(0.645 0.246 16.439);
   }
 }
+
+a {
+  @apply cursor-none;
+}

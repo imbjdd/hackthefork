@@ -11,6 +11,7 @@ import ChallengeSection from "@/components/sections/ChallengeSection";
 import OrganizedBySection from "@/components/sections/OrganizedBySection";
 import SponsoredBySection from "@/components/sections/SponsoredBySection";
 import PlaceSection from "@/components/sections/PlaceSection";
+import PartnersSection from "@/components/sections/PartnersSection";
 import SpeakersSection from "@/components/sections/SpeakersSection";
 import FAQSection from "@/components/sections/FAQSection";
 
@@ -136,6 +137,7 @@ export default function Home() {
       <PlaceSection />
       <SpeakersSection speakers={speakers} />
       <FAQSection />
+      <PartnersSection />
     </div>
   );
 }
