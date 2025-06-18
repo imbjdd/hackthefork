@@ -1,29 +1,30 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import Image from "next/image";
-import ChartRadialStacked from "@/components/chart"
+import { useEffect, useState } from "react";
+import { useGsapHome } from "@/lib/useGsapHome";
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
   type CarouselApi
 } from "@/components/ui/carousel"
 import { Pointer } from "@/components/magicui/pointer";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
+import Navbar from "@/components/sections/Navbar";
+import HeroSection from "@/components/sections/HeroSection";
+import ChallengeSection from "@/components/sections/ChallengeSection";
+import OrganizedBySection from "@/components/sections/OrganizedBySection";
+import SponsoredBySection from "@/components/sections/SponsoredBySection";
+import PlaceSection from "@/components/sections/PlaceSection";
+import SpeakersSection from "@/components/sections/SpeakersSection";
+import FAQSection from "@/components/sections/FAQSection";
 
 export default function Home() {
   const [api, setApi] = useState<CarouselApi>()
   const [scrollProgress, setScrollProgress] = useState(0);
   const [scrollYellowProgress, setScrollYellowProgress] = useState(0);
   const [imagepsahtek, setImagepsahtek] = useState<string>("/1742235768480.jpeg");
-  const orangeRef = useRef<HTMLDivElement>(null);
+
+  useGsapHome({
+    api,
+    setScrollProgress,
+    setScrollYellowProgress
+  });
 
   useEffect(() => {
     if (!api) {
@@ -48,153 +49,6 @@ export default function Home() {
     }, 1200)
     return () => clearInterval(interval)
   }, [])
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // --- RED PANEL ---
-    gsap.from(".line-1", {
-      scrollTrigger: {
-        trigger: ".line-1",
-        scrub: true,
-        start: "top bottom",
-        end: "top top"
-      },
-      scaleX: 0,
-      transformOrigin: "left center",
-      ease: "none"
-    });
-
-    // --- ORANGE PANEL ---
-    gsap.from(".line-2", {
-      scrollTrigger: {
-        trigger: ".orange",
-        scrub: true,
-        pin: true,
-        start: "top top",
-        end: "+=200%"
-      },
-      scaleX: 0,
-      transformOrigin: "left center",
-      ease: "none"
-    });
-
-    ScrollTrigger.create({
-        trigger: ".orange",
-        scrub: true,
-        start: "top top",
-        end: "+=200%",
-      onUpdate: (self) => {
-        console.log(
-          'progress:',
-          self.progress.toFixed(3),
-          setScrollProgress(self.progress),
-          'direction:',
-          self.direction,
-          'velocity',
-          self.getVelocity()
-        );
-      }
-    });
-
-  
-    gsap.from(".vroom", {
-      scrollTrigger: {
-        trigger: ".vroom",
-        scrub: true,
-        pin: true,
-        start: "top top",
-        end: "+=100%"
-      },
-      scale: 1,
-      transformOrigin: "left center",
-      ease: "none"
-    });
-  
-    ScrollTrigger.create({
-      trigger: ".vroom",
-      scrub: true,
-      start: "top top",
-      end: "+=100%",
-    onUpdate: (self) => {
-      setScrollYellowProgress(self.progress)
-    }
-  });
-
-    gsap.from(".meow", {
-      scrollTrigger: {
-        trigger: ".meow",
-        scrub: true,
-        pin: true,
-        start: "top top",
-        end: "+=200%"
-      },
-      scale: 1,
-      transformOrigin: "left center",
-      ease: "none"
-    });
-
-    ScrollTrigger.create({
-      trigger: ".meow",
-      scrub: true,
-      start: "top top",
-      end: "+=200%",
-    onUpdate: (self) => {
-      console.log(api)
-      if (api) {
-        api.scrollTo(Math.floor(self.progress*api.containerNode().children.length))
-        console.log('uwu')
-        console.log(api.containerNode().children.length)
-        console.log(Math.round(self.progress*10))
-      }
-    }
-  });
-
-    // --- PURPLE/GREEN PANEL ---
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".purple",
-        scrub: true,
-        pin: true,
-        start: "top top",
-        end: "+=100%"
-      }
-    });
-    tl.from(".purple p", { scale: 0.3, rotation: 45, autoAlpha: 0, ease: "power2" })
-      .from(".line-3", { scaleX: 0, transformOrigin: "left center", ease: "none" }, 0)
-      .to(".purple", { backgroundColor: "#28a92b" }, 0);
-
-    // iOS full-height bug workaround
-    function readHeight() {
-      if (ScrollTrigger.isScrolling()) {
-        ScrollTrigger.addEventListener("scrollEnd", readHeight);
-      } else {
-        ScrollTrigger.removeEventListener("scrollEnd", readHeight);
-        window.removeEventListener("resize", readHeight);
-        const scrollFunc = ScrollTrigger.getScrollFunc(window),
-          maxScroll = ScrollTrigger.maxScroll(window),
-          scrollValue = (scrollFunc(0) as unknown as number) || 0,
-          scrollProgress = maxScroll === 0 ? 0 : scrollValue / maxScroll,
-          docStyle = document.documentElement.style,
-          bodyStyle = document.body.style;
-        bodyStyle.overflow = "auto";
-        docStyle.setProperty("--full-height", "100%");
-        docStyle.setProperty("--full-height", window.innerHeight + "px");
-        bodyStyle.overflow = "unset";
-        setTimeout(function () {
-          window.addEventListener("resize", readHeight);
-        }, 500);
-        ScrollTrigger.refresh(true);
-        scrollFunc(scrollProgress * maxScroll);
-      }
-    }
-    readHeight();
-    return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
-      window.removeEventListener("resize", readHeight);
-      //chartTrigger && chartTrigger.kill();
-    };
-  }, [api]);
 
   const speakers = [
     {
@@ -264,254 +118,14 @@ export default function Home() {
           </svg>
       </Pointer>
 
-      <nav className="flex w-screen border-b justify-between backdrop-blur-xl bg-white/80 items-center fixed top-0 left-0 right-0 z-40 py-4">
-        <div className="container flex flex-row justify-between items-center mx-auto px-4 md:px-8 xl:px-12">
-        <div className="flex flex-row items-center gap-4 justify-between w-full">
-          <a href="#top" onClick={(e) => scrollToSection(e, 'top')} className="cursor-pointer">
-            <h1 className="text-base md:text-lg font-bold text-[#000091]">Hack_the_Fork<span className="text-xs md:text-sm font-light italic animate-pulse">_2025</span></h1>
-          </a>
-          
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#challenge" onClick={(e) => scrollToSection(e, 'challenge')} className="text-[#000091] hover:text-[#000091]/80 transition-colors">Challenge</a>
-            <a href="#speakers" onClick={(e) => scrollToSection(e, 'speakers')} className="text-[#000091] hover:text-[#000091]/80 transition-colors">Speakers</a>
-            <a href="#faq" onClick={(e) => scrollToSection(e, 'faq')} className="text-[#000091] hover:text-[#000091]/80 transition-colors">FAQ</a>
-          </div>
-
-          <div className="text-base md:text-lg bg-[#000091] text-white px-3 md:px-4 py-2 rounded-lg font-bold"><a target="_blank" href="https://lu.ma/6vtlc0y1">Participate</a></div>
-        </div>
-        </div>
-      </nav>
-
-
-      <div className="bg-white flex flex-col items-center justify-center min-h-screen md:h-screen pt-24 pb-48 md:pt-0 md:pb-0">
-        <div className="container h-fit flex flex-col justify-center items-center gap-4 px-4 md:px-8 xl:px-12">
-          <div className="flex flex-col text-center">
-            <div className="flex items-center justify-center gap-8 flex-col md:flex-row">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl 2xl:text-9xl font-bold">Time to</h1>
-              <div className="relative">
-                <img src={imagepsahtek} alt="build" className="w-24 h-24 md:w-32 md:h-32 xl:w-36 xl:h-36 aspect-square -rotate-12 rounded-xl" />
-                <Pointer className="z-50">
-        <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="12" cy="12" r="10" className="fill-black" />
-            <circle cx="12" cy="12" r="5" className="fill-white" />
-          </svg>
-      </Pointer>
-              </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl 2xl:text-9xl font-bold">Build</h1>
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-light italic -mt-2 md:-mt-2">a new way to eat</h1>
-          </div>
-          <p className="text-base md:text-lg font-bold text-[#000091]">8-9 November 2025</p>
-        </div>
-        <div className="container justify-center md:justify-end md:absolute md:bottom-6 md:bottom-12 mx-auto flex flex-row gap-2 md:gap-4 mt-12 px-4 md:px-8 xl:px-12">
-          <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold"><span className="text-[#000091]">150</span> Builders</h1>
-          <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold">-</h1>
-          <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold"><span className="text-[#000091]">$3000</span> Cash Prize</h1>
-        </div>
-      </div>
-      <section ref={orangeRef} id="challenge" className="orange flex flex-col items-center justify-center gap-0 my-24">
-        <div className="container text-center px-4 md:px-8 xl:px-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold">A Challenge</h1>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-light italic">for the Future of Food</h1>
-        </div>
-
-        <div className="container flex flex-col md:flex-row px-4 md:px-8 xl:px-12">
-          <div className="container mt-12 md:mt-24">
-            <p className="text-lg md:text-xl xl:text-2xl font-bold text-[#000091]">The Challenge</p>
-            <p className="text-base max-w-4xl">Rethink how we feed the planet. Livestock accounts for over 14% of global emissions. Can AI help us create better, cleaner proteins? In this hackathon, you&apos;ll combine Foodtech and artificial intelligence to imagine bold solutions for alt proteins, sustainability, and the future of food itself.</p>
-          </div>
-
-          <ChartRadialStacked progress={scrollProgress} />
-        </div>
-      </section>
-      <section className="vroom flex flex-col items-center justify-center gap-12">
-        <div className="container flex items-center justify-center px-4 md:px-8 xl:px-12">
-          <div className="flex flex-col gap-8 text-center max-w-4xl">
-            <p className="text-2xl font-bold text-[#000091]">Organized by</p>
-            <div className="flex flex-row gap-4 justify-center">
-              <svg preserveAspectRatio="xMidYMid meet" data-bbox="24.122 11.028 583.878 337.747" viewBox="24.122 11.028 583.878 337.747" height={122*(scrollYellowProgress+0.5)} width={208*(scrollYellowProgress+0.5)} xmlns="http://www.w3.org/2000/svg" data-type="shape" role="presentation" aria-hidden="true" aria-label="">
-                  <g>
-                      <path d="M58.1 12.1c-6.4 1.2-16.2 6.1-20.9 10.3-16.8 15.2-17.5 42.8-1.6 58.1 9.6 9.1 19.4 12.9 33.9 12.9 17.1 0 30.1-6.3 39.1-18.9 7-9.9 8.4-27.3 3.2-38.7-8.4-18.2-31-28.2-53.7-23.7"></path>
-                      <path d="M244 107.1c-15.6 1.8-33.3 8.3-46.2 17-8.1 5.5-21.3 18.6-26.8 26.8-15.1 22.5-21.4 45.1-21.4 77.1 0 26.1 3.7 43.6 13 62.2 7.6 15.2 20.3 30.3 33 39.4 30.4 21.8 76.2 25.4 111.3 8.8 17-8 31.3-20.7 40.9-36.3 4.8-7.9 10.3-22.4 11.7-30.7l.6-4.1-14.3-.7c-7.9-.3-18.1-.9-22.8-1.2l-8.6-.6-1.8 5.8c-6.1 19.6-19.5 32.6-38.3 37-5 1.2-9.7 1.5-17.8 1.1-17.4-.8-27-4.9-38.5-16.6-11.5-11.6-17.4-24.6-20.5-45.1-5.4-35.2 3.7-69.2 23.1-86.9 16.5-15.1 44.8-18.5 66.4-7.9 12 5.8 22.8 19.2 26.1 32.2.6 2.6 1.4 4.8 1.8 5 1 .5 43.9-1.9 44.5-2.5 1.1-1.1-3.6-17.5-7.3-25.5-5-10.5-8.9-16.2-17-24.8-21.9-22.8-55.2-33.6-91.1-29.5"></path>
-                      <path d="M493.7 109c-31.2 5.3-61.6 28.2-81 61.1-23.9 40.6-29.6 97-13.4 132.2 13.8 29.8 38.5 45 73.2 44.9 20.7-.1 38.7-5.6 56.2-17.1 16-10.6 30.1-25.8 37.4-40.3 1.7-3.3 3.2-5.8 3.4-5.6s-1.8 13.4-4.4 29.3c-2.7 16-4.7 29.3-4.4 29.7.2.5 2.4.8 4.8.8 3.9 0 4.4-.3 4.9-2.7 1.4-6.4 37.6-226.7 37.6-228.5 0-1.7-.6-1.9-4.7-1.6l-4.8.3-5 30.3c-4.6 26.9-6.5 34.7-6.5 26.1 0-4.6-4.7-18-8.7-24.8-4.6-7.9-16-19.4-23.6-24-7.5-4.4-16.4-7.9-24.5-9.6-7.2-1.6-28.4-1.8-36.5-.5m35.7 10.5c36.2 7.7 56.9 45.2 51.7 94-4.2 38.9-16.7 69.1-38.1 91.8-19.9 21.2-42.9 31.7-69.5 31.9-22.7.1-36.3-5-50.1-18.7-9.2-9.1-13.8-16.7-18.3-30-7.7-23.2-6.4-56 3.4-85.9 14.5-44.5 48.9-77.4 87.5-83.9 6.3-1.1 27-.6 33.4.8"></path>
-                      <path d="M26.5 112.2c-.3.7-.4 53-.3 116.3l.3 115 43.3.3 43.2.2V111H70c-33.5 0-43.2.3-43.5 1.2"></path>
-                  </g>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="meow flex flex-col items-center justify-center gap-12">
-        <div className="container flex items-center justify-center px-4 md:px-8 xl:px-12">
-          <div className="flex flex-col gap-8 text-center max-w-4xl items-center justify-center">
-            <p className="text-2xl font-bold text-[#000091]">Sponsored by</p>
-            <Carousel setApi={setApi}>
-              <CarouselContent>
-                <CarouselItem className="flex items-center justify-center">
-                  <Image src="/JGI_MASTER_COUNTRY_LOGO_WHITE_7_France.svg" alt="Jane Goodall Institute France" width={600} height={600} className="invert" />
-                </CarouselItem>
-                <CarouselItem className="flex items-center justify-center">
-                  <Image src="/sciencepo.png" alt="Place" width={400} height={400} />
-                </CarouselItem>
-              </CarouselContent>
-            </Carousel>
-          </div>
-        </div>
-      </section>
-      <section className="flex flex-col items-center justify-center gap-12">
-        <div className="container px-4 md:px-8 xl:px-12 flex items-center justify-center">
-          <Pointer className="fill-[#000091]" />
-          <Image className="rounded-lg max-w-5xl w-full" src="/albertschool.jpg" alt="Place" width={1000} height={1000} />
-        </div>
-        <p className="text-2xl max-w-4xl px-4 md:px-8 xl:px-12">The event will take place at <span className="font-bold text-[#000091]">Albert School</span> in Paris, France.</p>
-      </section>
-      <div id="speakers" className="flex min-h-screen flex-col items-center justify-center gap-12">
-        <div className="container flex flex-col gap-4 px-4 md:px-8 xl:px-12">
-          <p className="text-xl md:text-2xl font-bold text-[#000091]">Speakers & Mentors</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {speakers.map((speaker) => (
-              <div key={speaker.name} className="flex flex-col gap-4">
-                <div className="relative overflow-hidden rounded-lg aspect-square">
-                  <Image 
-                    className="rounded-lg w-full h-full object-cover transition-transform duration-300 hover:scale-110" 
-                    src={speaker.image} 
-                    alt="Speaker" 
-                    width={400} 
-                    height={400}
-                    style={{aspectRatio: "1/1"}}
-                  />
-                </div>
-                <p className="text-base md:text-lg font-bold">{speaker.name}</p>
-                <p className="text-sm md:text-base text-black/50">{speaker.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      <div id="faq" className="min-h-screen py-12 flex items-center justify-center gap-12">
-        <div className="max-w-5xl w-full flex flex-col gap-12 px-4 md:px-8 xl:px-12">
-        <p className="text-xl md:text-2xl font-bold text-[#000091]">FAQ</p>
-        <Accordion
-          type="single"
-          collapsible
-          className="w-full"
-          defaultValue="item-1"
-        >
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="text-lg">Is Hack The Fork free to attend?</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>Yes! Food will be provided for the duration of the event. We will also have swag and prizes!</p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-2">
-            <AccordionTrigger className="text-lg">Where is the event? Is it in person or virtual? Where can I park?</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>The event is located in the XXXX Building at STREET ADDRESS.</p>
-              <p>You can park in Lot X,Y, Z which you can see on this campus parking site - LINK</p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-3">
-            <AccordionTrigger className="text-lg">Who can attend? What if I don&apos;t have any experience? Do I have to be 18?</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>This event is open to any students. It is beginner friendly, with workshops to help you learn during the event, and mentors available to help you as you work on your project.</p>
-              <p>Attendees must be at least 13 years old due to child privacy laws. If under 18, you will need to fill out this liability form from the university to participate - LINK.</p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-4">
-            <AccordionTrigger className="text-lg">What is the team size limit?</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>Teams should be between 1 and 4 people. We will have a team building activity right after opening ceremony if you&apos;d like to find team members!</p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-5">
-            <AccordionTrigger className="text-lg">Are there travel reimbursements?</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>We are not able to provide travel reimbursements at this time.</p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-6">
-            <AccordionTrigger className="text-lg">What should I bring?</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>Your laptop, charger, headphones, deodorant, and a pillow/blanket.</p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-7">
-            <AccordionTrigger className="text-lg">When can we start working on our project? Can I work on a previous project?</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>You cannot start until after opening ceremony. You may come up with ideas, but are not allowed to start coding. You cannot work on a previous project, but can use frameworks if you clearly credit them in your readme and differentiate what you made vs what you used.</p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-8">
-            <AccordionTrigger className="text-lg">How many challenges can I apply for?</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>As many as you want!</p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-9">
-            <AccordionTrigger className="text-lg">Do I have to stay overnight?</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>No, you can leave and come back if you would prefer.</p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-10">
-            <AccordionTrigger className="text-lg">What kind of activities will there be?</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>We will post the schedule closer to the event. There will be workshops and activities to take a break and meet other hackers and our wonderful sponsors.</p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-11">
-            <AccordionTrigger className="text-lg">What is a hackathon?</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>A hackathon is an event where students &quot;hack&quot; together and create an app, website, game, etc. in 24-48 hours. There will be no malicious &quot;hacking&quot;.</p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-12">
-            <AccordionTrigger className="text-lg">Will hardware be available?</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>We do not have hardware available, but you are welcome to bring your own. Due to building fire codes, soldering kits are not allowed in the venue.</p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-13">
-            <AccordionTrigger className="text-lg">Are you sending out acceptances? Is there a deadline to apply? Is there a waitlist?</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>We will send out acceptances XX days before the event. If you need earlier confirmation to book travel, please reach out to our team at EMAIL ADDRESS. Applications will close once we reach the maximum amount of hackers we can support, but we will open a waitlist on the day of the event for any local hackers who want to fill the spots of any accepted hackers who do not end up attending.</p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-14">
-            <AccordionTrigger className="text-lg">How do I sign up to be a mentor/judge/volunteer?</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>You can sign up here - LINK</p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-15">
-            <AccordionTrigger className="text-lg">I have a different question!</AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>Email us at EMAIL ADDRESS!</p>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-        </div>
-      </div>
+      <Navbar scrollToSection={scrollToSection} />
+      <HeroSection imagepsahtek={imagepsahtek} />
+      <ChallengeSection scrollProgress={scrollProgress} />
+      <OrganizedBySection scrollYellowProgress={scrollYellowProgress} />
+      <SponsoredBySection setApi={setApi} />
+      <PlaceSection />
+      <SpeakersSection speakers={speakers} />
+      <FAQSection />
     </div>
   );
 }
