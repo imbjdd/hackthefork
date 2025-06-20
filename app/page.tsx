@@ -68,11 +68,6 @@ export default function Home() {
       description: "AI @ LinkPact | +7 Hackathon Prize Winner"
     },
     {
-      name: "Carole Galissant",
-      image: "/Z6XH4AAVUNB4ZMGY4KBNXQQCWA.jpg",
-      description: "Presidente Commission Nutrition du SNRC"
-    },
-    {
       name: "Tom Bry-Chevalier",
       image: "/Bry-Chevalier Tom.jpg",
       description: "PhD candidate | economic and environmental stakes of alternative proteins"
