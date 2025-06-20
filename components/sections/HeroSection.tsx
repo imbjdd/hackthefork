@@ -32,7 +32,7 @@ export default function HeroSection({ imagepsahtek }: { imagepsahtek: string }) 
       <div className="container justify-center md:justify-end md:absolute md:bottom-6 md:bottom-12 mx-auto flex flex-row gap-2 md:gap-4 mt-12 px-4 md:px-8 xl:px-12">
         <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold"><span className="text-[#000091]">150</span> Builders</h1>
         <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold">-</h1>
-        <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold"><span className="text-[#000091]">$3000</span> Cash Prize</h1>
+        <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold"><span className="text-[#000091]">$6000</span> Cash Prize</h1>
       </div>
     </div>
   );

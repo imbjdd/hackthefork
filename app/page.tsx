@@ -109,7 +109,7 @@ export default function Home() {
     <div style={{ fontFamily: 'system-ui, sans-serif' }} className="scroll-smooth">
       <style>{`
         :root { --full-height: 100vh; }
-        section { height: var(--full-height);position: relative; }
+        section { height: var(--full-height);position: relative; margin-bottom: 2rem; margin-top: 2rem; }
         .red { background: #e63946; color: #fff; }
         .purple { background: #6c47ff; color: #fff; transition: background 0.3s; }
         .blue { background: #000091; color: #fff; }
