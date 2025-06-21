@@ -60,7 +60,7 @@ export default function Home() {
     {
       name: "Alice Pjie",
       image: "/Alice.jpg",
-      description: "Adjoint director | Institut de la Condition Animale"
+      description: "Deputy Director | Institut de la Condition Animale"
     },
     {
       name: "Salim Boujaddi",
