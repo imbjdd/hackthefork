@@ -35,7 +35,7 @@ export function useGsapHome({
         scrub: true,
         pin: true,
         start: "top top",
-        end: "+=200%"
+        end: "+=100%"
       },
       scaleX: 0,
       transformOrigin: "left center",
@@ -46,7 +46,7 @@ export function useGsapHome({
       trigger: ".orange",
       scrub: true,
       start: "top top",
-      end: "+=200%",
+      end: "+=100%",
       onUpdate: (self) => {
         setScrollProgress(self.progress);
       }
@@ -81,7 +81,7 @@ export function useGsapHome({
         scrub: true,
         pin: true,
         start: "top top",
-        end: "+=200%"
+        end: "+=100%"
       },
       scale: 1,
       transformOrigin: "left center",
@@ -92,7 +92,7 @@ export function useGsapHome({
       trigger: ".meow",
       scrub: true,
       start: "top top",
-      end: "+=200%",
+      end: "+=100%",
       onUpdate: (self) => {
         if (api) {
           api.scrollTo(Math.floor(self.progress * api.containerNode().children.length));
