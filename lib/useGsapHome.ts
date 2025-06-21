@@ -114,28 +114,26 @@ export function useGsapHome({
       .from(".line-3", { scaleX: 0, transformOrigin: "left center", ease: "none" }, 0)
       .to(".purple", { backgroundColor: "#28a92b" }, 0);
 
-    // iOS full-height bug workaround
+    let resizeTimeout: NodeJS.Timeout;
+
     function readHeight() {
       if (ScrollTrigger.isScrolling()) {
         ScrollTrigger.addEventListener("scrollEnd", readHeight);
       } else {
         ScrollTrigger.removeEventListener("scrollEnd", readHeight);
         window.removeEventListener("resize", readHeight);
-        const scrollFunc = ScrollTrigger.getScrollFunc(window),
-          maxScroll = ScrollTrigger.maxScroll(window),
-          scrollValue = (scrollFunc(0) as unknown as number) || 0,
-          scrollProgress = maxScroll === 0 ? 0 : scrollValue / maxScroll,
-          docStyle = document.documentElement.style,
-          bodyStyle = document.body.style;
-        bodyStyle.overflow = "auto";
-        docStyle.setProperty("--full-height", "100%");
-        docStyle.setProperty("--full-height", window.innerHeight + "px");
-        bodyStyle.overflow = "unset";
-        setTimeout(function () {
-          window.addEventListener("resize", readHeight);
-        }, 500);
-        ScrollTrigger.refresh(true);
-        scrollFunc(scrollProgress * maxScroll);
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          const docStyle = document.documentElement.style;
+          const bodyStyle = document.body.style;
+          bodyStyle.overflow = "auto";
+          docStyle.setProperty("--full-height", "100%");
+          docStyle.setProperty("--full-height", window.innerHeight + "px");
+          bodyStyle.overflow = "unset";
+          setTimeout(function () {
+            window.addEventListener("resize", readHeight);
+          }, 500);
+        }, 200);
       }
     }
     readHeight();
