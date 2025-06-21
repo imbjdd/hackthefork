@@ -20,7 +20,7 @@ export default function PlaceSection() {
         </Pointer>
         <Image className="rounded-lg max-w-5xl w-full" src="/albertschool.jpg" alt="Place" width={1000} height={1000} />
       </div>
-      <p className="text-2xl max-w-4xl px-4 md:px-8 xl:px-12">The event will take place at <span className="font-bold text-[#000091]">Albert School</span> in Paris, France.</p>
+      <p className="text-2xl max-w-4xl px-4 md:px-8 xl:px-12">The event will (probably) take place at <span className="font-bold text-[#000091]">Albert School</span> in Paris, France.</p>
     </section>
   );
 } 
