@@ -6,7 +6,7 @@ import { ScriptCopyBtn } from "@/components/magicui/script-copy-btn";
 export default function PartnersSection() {
 
   const customCommandMap = {
-    "hack@hackthefork.com": "hack@hackthefork.com"
+    "hack@hackthefork.com": "contact@hackthefork.com"
   };
 
   return (
@@ -19,7 +19,9 @@ export default function PartnersSection() {
           </div>
         </div>
         <div className="flex flex-row gap-4 py-8">
-            <Button className="bg-white text-black md:px-12 md:py-8 rounded-none font-bold hover:bg-white/80 cursor-none">Contact Us</Button>
+            <a href="mailto:contact@hackthefork.com" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-white text-black md:px-12 md:py-8 rounded-none font-bold hover:bg-white/80">Contact Us</Button>
+            </a>
         </div>
         <div className="flex flex-row gap-4 absolute bottom-40 items-center justify-center">
             <ScriptCopyBtn
