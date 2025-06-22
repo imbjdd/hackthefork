@@ -68,6 +68,11 @@ export default function Home() {
       description: "AI @ LinkPact | +7 Hackathon Prize Winner"
     },
     {
+      name: "Louan Bardou",
+      image: "/louan.png",
+      description: "Mentor & Jury Coordinator | HEC & Polytechnique"
+    },
+    {
       name: "Tom Bry-Chevalier",
       image: "/Bry-Chevalier Tom.jpg",
       description: "PhD candidate | economic and environmental stakes of alternative proteins"
@@ -76,6 +81,11 @@ export default function Home() {
       name: "Guilhem Saïz",
       image: "/Guilhem-Saiz.png",
       description: "Postdoctoral researcher"
+    },
+    {
+      name: "Romain El Andaloussi",
+      image: "/1667986898642.jpeg",
+      description: "Food Science Minor Manager | SupBiotech"
     }
   ]
 
