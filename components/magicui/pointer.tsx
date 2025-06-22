@@ -33,6 +33,9 @@ export function Pointer({
   const [isActive, setIsActive] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Add a CSS class to hide the component on mobile devices
+  const mobileHiddenClass = "hidden sm:block";
+
   useEffect(() => {
     if (typeof window !== "undefined" && containerRef.current) {
       // Get the parent element directly from the ref
@@ -76,7 +79,7 @@ export function Pointer({
       <AnimatePresence>
         {isActive && (
           <motion.div
-            className="transform-[translate(-50%,-50%)] pointer-events-none fixed z-50"
+            className={`transform-[translate(-50%,-50%)] pointer-events-none fixed z-50 ${mobileHiddenClass}`}
             style={{
               top: y,
               left: x,
