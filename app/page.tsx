@@ -80,13 +80,20 @@ export default function Home() {
     {
       name: "Guilhem Saïz",
       image: "/Guilhem-Saiz.png",
-      description: "Postdoctoral researcher"
+      description: "Researcher, ENS graduate, working at CEA"
     },
     {
       name: "Romain El Andaloussi",
       image: "/1667986898642.jpeg",
       description: "Food Science Minor Manager | SupBiotech"
-    }
+    },
+    {
+      name: "Andrew Blackhood",
+      image: "/1718318749927.jpeg",
+      description: "R&D Engineer | Imperial College London"
+    },
+    
+    
   ]
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
@@ -114,7 +121,7 @@ export default function Home() {
     <div style={{ fontFamily: 'system-ui, sans-serif' }} className="scroll-smooth">
       <style>{`
         :root { --full-height: 100vh; }
-        section { height: var(--full-height);position: relative; margin-bottom: 2rem; margin-top: 2rem; }
+        section { height: var(--full-height);position: relative; }
         .red { background: #e63946; color: #fff; }
         .purple { background: #6c47ff; color: #fff; transition: background 0.3s; }
         .blue { background: #000091; color: #fff; }
@@ -133,6 +140,10 @@ export default function Home() {
             <circle cx="12" cy="12" r="5" className="fill-white" />
           </svg>
       </Pointer>
+
+      <div className="fixed left-8 z-50 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90 hidden md:block">
+        <p className="text-[#000091] font-bold text-lg">Organized by ICA</p>
+      </div>
 
       <Navbar scrollToSection={scrollToSection} />
       <HeroSection imagepsahtek={imagepsahtek} />
