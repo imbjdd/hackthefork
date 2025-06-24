@@ -26,15 +26,14 @@ export default function FAQSection() {
           <AccordionItem value="item-2">
             <AccordionTrigger className="text-lg">Where is the event? Is it in person or virtual? Where can I park?</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>The event is located in the XXXX Building at STREET ADDRESS.</p>
-              <p>You can park in Lot X,Y, Z which you can see on this campus parking site - LINK</p>
+              <p>The event will probably be in person at Albert School.</p>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger className="text-lg">Who can attend? What if I don&apos;t have any experience? Do I have to be 18?</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
               <p>This event is open to any students. It is beginner friendly, with workshops to help you learn during the event, and mentors available to help you as you work on your project.</p>
-              <p>Attendees must be at least 13 years old due to child privacy laws. If under 18, you will need to fill out this liability form from the university to participate - LINK.</p>
+              <p>Attendees must be at least 13 years old due to child privacy laws. If under 18, you will need to fill out this liability form from the university to participate - <a href="https://lu.ma/6vtlc0y1" target="_blank" rel="noopener noreferrer">https://lu.ma/6vtlc0y1</a>.</p>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
@@ -94,19 +93,19 @@ export default function FAQSection() {
           <AccordionItem value="item-13">
             <AccordionTrigger className="text-lg">Are you sending out acceptances? Is there a deadline to apply? Is there a waitlist?</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>We will send out acceptances XX days before the event. If you need earlier confirmation to book travel, please reach out to our team at EMAIL ADDRESS. Applications will close once we reach the maximum amount of hackers we can support, but we will open a waitlist on the day of the event for any local hackers who want to fill the spots of any accepted hackers who do not end up attending.</p>
+              <p>We will send out acceptances 7 days before the event. If you need earlier confirmation to book travel, please reach out to our team at contact@hackthefork.com. Applications will close once we reach the maximum amount of hackers we can support, but we will open a waitlist on the day of the event for any local hackers who want to fill the spots of any accepted hackers who do not end up attending.</p>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-14">
             <AccordionTrigger className="text-lg">How do I sign up to be a mentor/judge/volunteer?</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>You can sign up here - LINK</p>
+              <p>You can email us at contact@hackthefork.com</p>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-15">
             <AccordionTrigger className="text-lg">I have a different question!</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p>Email us at EMAIL ADDRESS!</p>
+              <p>Email us at contact@hackthefork.com</p>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
