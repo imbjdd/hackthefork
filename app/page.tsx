@@ -4,7 +4,6 @@ import { useGsapHome } from "@/lib/useGsapHome";
 import {
   type CarouselApi
 } from "@/components/ui/carousel"
-import { Pointer } from "@/components/magicui/pointer";
 import Navbar from "@/components/sections/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import ChallengeSection from "@/components/sections/ChallengeSection";
@@ -19,7 +18,6 @@ export default function Home() {
   const [api, setApi] = useState<CarouselApi>()
   const [scrollProgress, setScrollProgress] = useState(0);
   const [scrollYellowProgress, setScrollYellowProgress] = useState(0);
-  const [imagepsahtek, setImagepsahtek] = useState<string>("/1742235768480.jpeg");
 
   useGsapHome({
     api,
@@ -38,18 +36,6 @@ export default function Home() {
     console.log('meow')
     console.log(api.selectedScrollSnap())
   }, [api])
-
-  useEffect(() => {
-    let i = 0
-    const interval = setInterval(() => {
-      setImagepsahtek(speakers[i].image)
-      i++
-      if (i >= speakers.length) {
-        i = 0
-      }
-    }, 1200)
-    return () => clearInterval(interval)
-  }, [])
 
   const speakers = [
     {
@@ -146,7 +132,7 @@ export default function Home() {
       </div>
 
       <Navbar scrollToSection={scrollToSection} />
-      <HeroSection imagepsahtek={imagepsahtek} />
+      <HeroSection />
       <ChallengeSection scrollProgress={scrollProgress} />
       <OrganizedBySection scrollYellowProgress={scrollYellowProgress} />
       <SponsoredBySection setApi={setApi} />

@@ -1,7 +1,6 @@
 "use client";
-import { Pointer } from "@/components/magicui/pointer";
 
-export default function HeroSection({ imagepsahtek }: { imagepsahtek: string }) {
+export default function HeroSection() {
   return (
     <div className="relative z-10 bg-white min-h-screen flex">
       <div className="flex-grow grow md:m-18 md:mt-36 overflow-hidden rounded-xl" style={{ backgroundImage: `url(/bg.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
