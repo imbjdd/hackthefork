@@ -118,17 +118,17 @@ export default function Home() {
   };
 
   return (
-    <div style={{ fontFamily: 'system-ui, sans-serif' }} className="scroll-smooth">
+    <div style={{ fontFamily: 'system-ui, sans-serif' }} className="scroll-smooth bg-white">
       <style>{`
         :root { --full-height: 100vh; }
         section { height: var(--full-height);position: relative; }
         .red { background: #e63946; color: #fff; }
-        .purple { background: #6c47ff; color: #fff; transition: background 0.3s; }
+        .purple { color: #fff; transition: background 0.3s; }
         .blue { background: #000091; color: #fff; }
         .line-1, .line-2, .line-3 { width: 80vw; max-width: 600px; height: 6px; background: #fff; margin: 32px 0; border-radius: 3px; }
       `}</style>
 
-      <Pointer className="z-50">
+      {/*<Pointer className="z-50">
         <svg
             width="24"
             height="24"
@@ -139,7 +139,7 @@ export default function Home() {
             <circle cx="12" cy="12" r="10" className="fill-[#000091]" />
             <circle cx="12" cy="12" r="5" className="fill-white" />
           </svg>
-      </Pointer>
+      </Pointer>*/}
 
       <div className="fixed left-8 z-50 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90 hidden md:block">
         <p className="text-[#000091] font-bold text-lg">Organized by ICA</p>

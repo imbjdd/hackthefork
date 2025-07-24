@@ -3,13 +3,15 @@ import { Pointer } from "@/components/magicui/pointer";
 
 export default function HeroSection({ imagepsahtek }: { imagepsahtek: string }) {
   return (
-    <>
-      <div className="hidden md:flex bg-white flex-col items-center justify-center min-h-screen md:h-screen pt-24 pb-48 md:pt-0 md:pb-0">
-        <div className="container h-fit flex flex-col justify-center items-center gap-4 px-4 md:px-8 xl:px-12">
-          <div className="flex flex-col text-center">
-            <div className="flex items-center justify-center gap-8 flex-col md:flex-row">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl 2xl:text-9xl font-bold">Time to</h1>
-              <div className="relative">
+    <div className="relative z-10 bg-white min-h-screen flex">
+      <div className="flex-grow grow md:m-24 md:mt-42 rounded-xl overflow-hidden" style={{ backgroundImage: `url(/bg.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="flex bg-[#000091]/90  text-white flex-col pt-24 md:pt-0 px-8 overflow-hidden md:overflow-visible md:px-0 items-center justify-center w-full h-full rounded-xl relative">
+        <div className="container h-fit flex flex-col md:justify-center md:items-center gap-4 px-0 md:px-8 xl:px-12">
+          <div className="absolute bottom-0 right-0 h-12 w-12 bg-white rounded-tl-xl"></div>
+          <div className="flex flex-col text-center gap-6">
+            <div className="flex items-center justify-center gap-12 flex-col md:flex-row">
+              <h1 className="text-3xl md:text-6xl font-bold">Hack_the_Fork</h1>
+              {/*<div className="relative">
                 <img src={imagepsahtek} alt="build" className="w-24 h-24 md:w-32 md:h-32 xl:w-36 xl:h-36 aspect-square -rotate-12 rounded-xl" />
                 <Pointer className="z-50">
                   <svg
@@ -23,33 +25,16 @@ export default function HeroSection({ imagepsahtek }: { imagepsahtek: string }) 
                     <circle cx="12" cy="12" r="5" className="fill-white" />
                   </svg>
                 </Pointer>
-              </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl 2xl:text-9xl font-bold">Build</h1>
+              </div>*/}
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-light italic -mt-2 md:-mt-2">a new way to eat</h1>
+            <h1 className="text-3xl md:text-6xl font-light italic -mt-6">AI solutions for the Future of Food</h1>
+            <p className="text-white font-normal text-xl">Hacathon organized by ICA with <span className="font-bold">150 builders</span> and <span className="font-bold">$6000</span> cash prize</p>
           </div>
-          <p className="text-base md:text-lg font-bold text-[#000091]">8-9 November 2025</p>
-        </div>
-        <div className="container justify-center md:justify-end md:absolute md:bottom-6 md:bottom-12 mx-auto flex flex-row gap-2 md:gap-4 mt-12 px-4 md:px-8 xl:px-12">
-          <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold"><span className="text-[#000091]">150</span> Builders</h1>
-          <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold">-</h1>
-          <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold"><span className="text-[#000091]">$6000</span> Cash Prize</h1>
+          <p className="text-xl font-bold text-white">Paris, France / 8-9 November 2025</p>
+          <a href="https://lu.ma/6vtlc0y1" target="_blank" className="bg-white text-[#000091] font-bold px-4 py-2 rounded-md">Register Now</a>
         </div>
       </div>
-      <div className="md:hidden bg-white flex flex-col items-center justify-center min-h-screen md:h-screen gap-4">
-        <div className="flex flex-col text-center">
-          <div className="flex items-center justify-center gap-8 flex-col md:flex-row">
-            <h1 className="text-5xl font-bold">Time to Build</h1>
-          </div>
-          <h1 className="text-5xl font-light italic -mt-2 md:-mt-2">a new way to eat</h1>
-        </div>
-        <p className="text-lg font-bold text-[#000091]">8-9 November 2025</p>
-        <div className="relative px-4 my-12">
-          <img src={imagepsahtek} alt="build" className="w-[60vw] h-[60vw] aspect-square rounded-xl" />
-        </div>
-        <h1 className="text-3xl font-bold"><span className="text-[#000091]">150</span> Builders</h1>
-        <h1 className="text-3xl font-bold"><span className="text-[#000091]">$6000</span> Cash Prize</h1>
       </div>
-    </>
+    </div>
   );
 } 
