@@ -4,10 +4,10 @@ import { Pointer } from "@/components/magicui/pointer";
 export default function HeroSection({ imagepsahtek }: { imagepsahtek: string }) {
   return (
     <div className="relative z-10 bg-white min-h-screen flex">
-      <div className="flex-grow grow md:m-24 md:mt-42 rounded-xl overflow-hidden" style={{ backgroundImage: `url(/bg.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="flex bg-[#000091]/90  text-white flex-col pt-24 md:pt-0 px-8 overflow-hidden md:overflow-visible md:px-0 items-center justify-center w-full h-full rounded-xl relative">
+      <div className="flex-grow grow md:m-18 md:mt-36 overflow-hidden" style={{ backgroundImage: `url(/bg.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="flex bg-[#000091]/90  text-white flex-col pt-24 md:pt-0 px-8 overflow-hidden md:overflow-visible md:px-0 items-center justify-center w-full h-full relative">
         <div className="container h-fit flex flex-col md:justify-center md:items-center gap-4 px-0 md:px-8 xl:px-12">
-          <div className="absolute bottom-0 right-0 h-12 w-12 bg-white rounded-tl-xl"></div>
+          <div className="absolute bottom-0 right-0 h-12 w-12 bg-white"></div>
           <div className="flex flex-col text-center gap-6">
             <div className="flex items-center justify-center gap-12 flex-col md:flex-row">
               <h1 className="text-3xl md:text-6xl font-bold">Hack_the_Fork</h1>
@@ -31,7 +31,7 @@ export default function HeroSection({ imagepsahtek }: { imagepsahtek: string }) 
             <p className="text-white font-normal text-xl">Hacathon organized by ICA with <span className="font-bold">150 builders</span> and <span className="font-bold">$6000</span> cash prize</p>
           </div>
           <p className="text-xl font-bold text-white">Paris, France / 8-9 November 2025</p>
-          <a href="https://lu.ma/6vtlc0y1" target="_blank" className="bg-white text-[#000091] font-bold px-4 py-2 rounded-md">Register Now</a>
+          <a href="https://lu.ma/6vtlc0y1" target="_blank" className="bg-white text-[#000091] font-bold px-6 py-2">Register Now</a>
         </div>
       </div>
       </div>
