@@ -1,42 +1,15 @@
 "use client";
-import { useEffect, useState } from "react";
-import { useGsapHome } from "@/lib/useGsapHome";
-import {
-  type CarouselApi
-} from "@/components/ui/carousel"
+
 import Navbar from "@/components/sections/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
-import ChallengeSection from "@/components/sections/ChallengeSection";
-import OrganizedBySection from "@/components/sections/OrganizedBySection";
 import SponsoredBySection from "@/components/sections/SponsoredBySection";
 import PlaceSection from "@/components/sections/PlaceSection";
 import PartnersSection from "@/components/sections/PartnersSection";
 import SpeakersSection from "@/components/sections/SpeakersSection";
 import FAQSection from "@/components/sections/FAQSection";
+import TracksSection from "@/components/sections/Tracks";
 
 export default function Home() {
-  const [api, setApi] = useState<CarouselApi>()
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [scrollYellowProgress, setScrollYellowProgress] = useState(0);
-
-  useGsapHome({
-    api,
-    setScrollProgress,
-    setScrollYellowProgress
-  });
-
-  useEffect(() => {
-    if (!api) {
-      return
-    }
-
-    api.on("select", () => {
-    })
-
-    console.log('meow')
-    console.log(api.selectedScrollSnap())
-  }, [api])
-
   const speakers = [
     {
       name: "Simon Nordmann",
@@ -81,6 +54,19 @@ export default function Home() {
     
     
   ]
+
+  const sponsors = [
+    {
+      name: "Jane Goodall Institute France",
+      image: "/JGI_MASTER_COUNTRY_LOGO_WHITE_7_France.svg",
+      description: "Institut de la Condition Animale"
+    },
+    {
+      name: "Sciences Po Environnement",
+      image: "/sciencepo.png",
+      description: "Place partner"
+    }
+  ];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
@@ -133,9 +119,10 @@ export default function Home() {
 
       <Navbar scrollToSection={scrollToSection} />
       <HeroSection />
-      <ChallengeSection scrollProgress={scrollProgress} />
-      <OrganizedBySection scrollYellowProgress={scrollYellowProgress} />
-      <SponsoredBySection setApi={setApi} />
+      <TracksSection />
+      {/*<ChallengeSection scrollProgress={scrollProgress} />*/}
+      {/*<OrganizedBySection scrollYellowProgress={scrollYellowProgress} />*/}
+      <SponsoredBySection sponsors={sponsors} />
       <PlaceSection />
       <SpeakersSection speakers={speakers} />
       <FAQSection />

@@ -8,9 +8,9 @@ import {
 
 export default function FAQSection() {
   return (
-    <div id="faq" className="min-h-screen py-12 flex items-center justify-center gap-12">
+    <div id="faq" className="py-20 md:py-32 flex items-center justify-center gap-12">
       <div className="max-w-5xl w-full flex flex-col gap-4 px-4 md:px-8 xl:px-12">
-        <p className="text-xl md:text-2xl font-bold text-[#000091]">FAQ</p>
+        <h1 className="text-2xl font-bold">FAQ</h1>
         <Accordion
           type="single"
           collapsible

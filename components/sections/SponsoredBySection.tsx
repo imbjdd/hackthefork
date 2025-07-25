@@ -1,25 +1,54 @@
 "use client";
-import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import Image from "next/image";
 
-export default function SponsoredBySection({ setApi }: { setApi: (api: CarouselApi) => void }) {
+export type Sponsor = {
+  name: string;
+  image: string;
+  description: string;
+};
+
+export default function SponsoredBySection({ sponsors }: { sponsors: Sponsor[] }) {
   return (
-    <section className="meow flex flex-col items-center justify-center gap-12">
-      <div className="container flex items-center justify-center px-4 md:px-8 xl:px-12">
-        <div className="flex flex-col gap-8 text-center max-w-4xl items-center justify-center">
-          <p className="text-2xl font-bold text-[#000091]">Sponsored by</p>
-          <Carousel setApi={setApi}>
-            <CarouselContent>
-              <CarouselItem className="flex items-center justify-center">
-                <Image src="/JGI_MASTER_COUNTRY_LOGO_WHITE_7_France.svg" alt="Jane Goodall Institute France" width={600} height={600} className="invert" />
-              </CarouselItem>
-              <CarouselItem className="flex items-center justify-center">
-                <Image src="/sciencepo.png" alt="Place" width={400} height={400} />
-              </CarouselItem>
-            </CarouselContent>
-          </Carousel>
-        </div>
+    <div className="flex flex-col items-center justify-center gap-12 py-20 md:py-32 bg-blue-100">
+      <div className="container flex flex-col gap-4 px-4 items-left">
+        <h1 className="text-2xl font-bold">Organizer</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 pt-4">
+            <div className="flex flex-col gap-4 items-center">
+              <div className="relative overflow-hidden rounded-lg w-fit h-fit p-6 bg-white">
+                <Image
+                  className="rounded-lg text-black w-full h-full object-contain p-4"
+                  src="/logo_ica.png"
+                  alt="ICA"
+                  width={600}
+                  height={400}
+                  style={{ aspectRatio: "3/2" }}
+                />
+              </div>
+              <p className="text-base md:text-lg font-semibold text-center">Institut de la Condition Animale</p>
+            </div>
+          </div>
+          <h1 className="text-2xl font-bold md:mt-8">Partners</h1>
+           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 pt-4">
+            {sponsors
+              .slice()
+              .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+              .map((sponsor) => (
+                <div key={sponsor.name} className="flex flex-col gap-4 items-center">
+                  <div className="relative overflow-hidden rounded-lg w-fit h-fit p-6 bg-white">
+                    <Image
+                      className="rounded-lg text-black w-full h-full object-contain p-4"
+                      src={sponsor.image}
+                      alt={sponsor.name}
+                      width={600}
+                      height={400}
+                      style={{ aspectRatio: "3/2" }}
+                    />
+                  </div>
+                  <p className="text-base md:text-lg font-semibold text-center">{sponsor.name}</p>
+                </div>
+              ))}
+          </div>
       </div>
-    </section>
+    </div>
   );
 } 

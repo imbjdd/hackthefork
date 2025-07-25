@@ -9,9 +9,9 @@ type Speaker = {
 
 export default function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
   return (
-    <div id="speakers" className="flex min-h-screen my-12 flex-col items-center justify-center gap-12">
+    <div id="speakers" className="flex py-20 md:py-32 flex-col items-center justify-center gap-12 bg-blue-100">
       <div className="container flex flex-col gap-4 px-4 md:px-8 xl:px-12">
-        <p className="text-xl md:text-2xl font-bold text-[#000091]">Speakers, Mentors & Organizers</p>
+        <h1 className="text-2xl font-bold">Speakers, Mentors & Organizers</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {speakers
             .slice()
@@ -29,7 +29,7 @@ export default function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
                   />
                 </div>
                 <p className="text-base md:text-lg font-bold">{speaker.name}</p>
-                <p className="text-sm md:text-base text-black/50">{speaker.description}</p>
+                <p className="text-sm md:text-base text-black/80">{speaker.description}</p>
               </div>
           ))}
         </div>
