@@ -3,7 +3,7 @@
 export default function HeroSection() {
   return (
     <div className="relative z-10 bg-white min-h-screen flex">
-      <div className="flex-grow grow md:m-18 md:mt-36 overflow-hidden rounded-xl" style={{ backgroundImage: `url(/bg.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="flex-grow grow md:m-18 md:mt-36 overflow-hidden md:rounded-xl" style={{ backgroundImage: `url(/bg.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="flex bg-gradient-to-r from-[#000091]/92 via-[#000091]/80 to-[#000091]/70 text-white flex-col pt-24 md:pt-0 px-8 overflow-hidden md:overflow-visible md:px-0 items-center justify-center w-full h-full relative">
         <div className="container h-fit flex flex-col md:justify-center gap-4 px-0 md:px-8 xl:px-12">
           <div className="flex flex-col text-left gap-6">
