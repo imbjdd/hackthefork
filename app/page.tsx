@@ -24,7 +24,7 @@ export default function Home() {
     {
       name: "Salim Boujaddi",
       image: "/1742235768480.jpeg",
-      description: "AI @ LinkPact | +7 Hackathon Prize Winner"
+      description: "AI @ LinkPact | 8 Hackathon Prize Winner"
     },
     {
       name: "Louan Bardou",
@@ -51,6 +51,11 @@ export default function Home() {
       image: "/1718318749927.jpeg",
       description: "R&D Engineer | Imperial College London"
     },
+    {
+      name: "Tom Efferneli",
+      image: "/Photopro Tom.jpg",
+      description: "Engineering student at Télécom Paris"
+    }
     
     
   ]
@@ -64,6 +69,16 @@ export default function Home() {
     {
       name: "Sciences Po Environnement",
       image: "/sciencepo.png",
+      description: "Place partner"
+    },
+    {
+      name: "SupBiotech",
+      image: "/supbiotech.png",
+      description: "Place partner"
+    },
+    {
+      name: "AgroParisTech",
+      image: "/agroparistech.png",
       description: "Place partner"
     }
   ];
