@@ -54,7 +54,7 @@ export default function Home() {
     {
       name: "Tom Efferneli",
       image: "/Photopro Tom.jpg",
-      description: "Engineering student at Télécom Paris"
+      description: "Partners coordinator"
     }
     
     
