@@ -52,9 +52,14 @@ export default function Home() {
       description: "R&D Engineer | Imperial College London"
     },
     {
-      name: "Tom Efferneli",
+      name: "Tom Effernelli",
       image: "/Photopro Tom.jpg",
       description: "Partners coordinator"
+    },
+    {
+      name: "Ben Issen",
+      image: "/1744379765558.jpeg",
+      description: "Cofounder Side School"
     }
     
     
