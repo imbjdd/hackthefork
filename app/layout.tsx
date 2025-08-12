@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hack_the_Fork",
-  description: "Hack_the_Fork",
+  title: "Hack the Fork",
+  description: "AI solutions for the Future of Food. Hackathon organized by ICA with 150 builders and $6000 cash prize. Register now to join the best builders in the world.",
 };
 
 export default function RootLayout({

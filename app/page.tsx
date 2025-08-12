@@ -4,10 +4,10 @@ import Navbar from "@/components/sections/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import SponsoredBySection from "@/components/sections/SponsoredBySection";
 import PlaceSection from "@/components/sections/PlaceSection";
-import PartnersSection from "@/components/sections/PartnersSection";
 import SpeakersSection from "@/components/sections/SpeakersSection";
 import FAQSection from "@/components/sections/FAQSection";
 import TracksSection from "@/components/sections/Tracks";
+import JoinSection from "@/components/sections/Join";
 
 export default function Home() {
   const speakers = [
@@ -146,7 +146,8 @@ export default function Home() {
       <PlaceSection />
       <SpeakersSection speakers={speakers} />
       <FAQSection />
-      <PartnersSection />
+      {/*<PartnersSection />*/}
+      <JoinSection />
     </div>
   );
 }

@@ -9,7 +9,7 @@ export default function Navbar({ scrollToSection }: { scrollToSection: (e: React
           <a href="#top" onClick={(e) => scrollToSection(e, 'top')} className="cursor-pointer">
             <h1 className="text-base md:text-lg font-bold text-[#000091]">Hack the Fork &nbsp;<span className="font-light">2025</span></h1>
           </a>
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8 text-base md:text-lg">
             <a href="#challenge" onClick={(e) => scrollToSection(e, 'challenge')} className="text-[#000091] hover:text-[#000091]/80 transition-colors">Challenge</a>
             <a href="#speakers" onClick={(e) => scrollToSection(e, 'speakers')} className="text-[#000091] hover:text-[#000091]/80 transition-colors">Speakers</a>
             <a href="#faq" onClick={(e) => scrollToSection(e, 'faq')} className="text-[#000091] hover:text-[#000091]/80 transition-colors">FAQ</a>
