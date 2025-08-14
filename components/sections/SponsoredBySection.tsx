@@ -24,7 +24,7 @@ export default function SponsoredBySection({ sponsors }: { sponsors: Sponsor[] }
                   style={{ aspectRatio: "3/2" }}
                 />
               </div>
-              <p className="text-base md:text-lg font-semibold text-center">Institut de la Condition Animale</p>
+              <p className="text-base md:text-lg font-semibold text-center">ICA</p>
             </div>
           </div>
           <h1 className="text-2xl font-bold md:mt-8">Partners</h1>
