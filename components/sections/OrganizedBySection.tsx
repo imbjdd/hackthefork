@@ -14,7 +14,7 @@ export default function OrganizedBySection({ scrollYellowProgress }: { scrollYel
                 height={122*(scrollYellowProgress+0.8)} 
                 width={208*(scrollYellowProgress+0.8)}
               />
-            
+            </a>
           </div>
         </div>
       </div>
