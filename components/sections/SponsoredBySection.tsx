@@ -5,6 +5,7 @@ export type Sponsor = {
   name: string;
   image: string;
   description: string;
+  link: string;
 };
 
 export default function SponsoredBySection({ sponsors }: { sponsors: Sponsor[] }) {
