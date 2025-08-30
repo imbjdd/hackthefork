@@ -69,22 +69,26 @@ export default function Home() {
     {
       name: "Jane Goodall Institute France",
       image: "/JGI_MASTER_COUNTRY_LOGO_WHITE_7_France.svg",
-      description: "Institut de la Condition Animale"
+      description: "Institut de la Condition Animale",
+      link: "https://janegoodall.fr/"
     },
     {
       name: "Sciences Po Environnement",
       image: "/sciencepo.png",
-      description: "Place partner"
+      description: "Place partner",
+      link: "https://sciencespoenvironnement.fr/"
     },
     {
       name: "SupBiotech",
       image: "/supbiotech.png",
-      description: "Place partner"
+      description: "Place partner",
+      link: "https://www.supbiotech.fr/"
     },
     {
       name: "AgroParisTech",
       image: "/agroparistech.png",
-      description: "Place partner"
+      description: "Place partner",
+      link: "https://www.agroparistech.fr/"
     }
   ];
 

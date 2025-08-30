@@ -7,12 +7,14 @@ export default function OrganizedBySection({ scrollYellowProgress }: { scrollYel
         <div className="flex flex-col gap-8 text-center max-w-4xl">
           <p className="text-2xl font-bold text-[#000091]">Organized by</p>
           <div className="flex flex-row gap-4 justify-center">
-            <img 
-              src="/logo_ica.png" 
-              alt="ICA Logo"
-              height={122*(scrollYellowProgress+0.8)} 
-              width={208*(scrollYellowProgress+0.8)}
-            />
+            <a href="https://www.institut-condition-animale.fr/" target="_blank">
+              <img 
+                src="/logo_ica.png" 
+                alt="ICA Logo"
+                height={122*(scrollYellowProgress+0.8)} 
+                width={208*(scrollYellowProgress+0.8)}
+              />
+            
           </div>
         </div>
       </div>
