@@ -76,7 +76,7 @@ export default function Home() {
       name: "Sciences Po Environnement",
       image: "/sciencepo.png",
       description: "Place partner",
-      link: "https://www.sciencespo.fr/fr/"
+      link: "https://www.sciencespo.fr/fr/ld be"
     },
     {
       name: "SupBiotech",
