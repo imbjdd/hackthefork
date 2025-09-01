@@ -15,7 +15,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Hack the Fork",
   description: "AI solutions for the Future of Food. Hackathon organized by ICA with 150 builders and $6000 cash prize. Register now to join the best builders in the world.",
-};
+  icons: [
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      url: '/favicon.ico',
+      media: '(prefers-color-scheme: light)',
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      url: '/favicon-dark.ico',
+      media: '(prefers-color-scheme: dark)',
+    },
+  ],
+}
 
 export default function RootLayout({
   children,
