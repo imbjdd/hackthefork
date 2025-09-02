@@ -8,6 +8,7 @@ import SpeakersSection from "@/components/sections/SpeakersSection";
 import FAQSection from "@/components/sections/FAQSection";
 import TracksSection from "@/components/sections/Tracks";
 import JoinSection from "@/components/sections/Join";
+import PrizesSection from "@/components/sections/PrizesSection";
 
 export default function Home() {
   const speakers = [
@@ -149,6 +150,7 @@ export default function Home() {
       <SponsoredBySection sponsors={sponsors} />
       {/*<PlaceSection />*/}
       <SpeakersSection speakers={speakers} />
+      <PrizesSection />
       <FAQSection />
       {/*<PartnersSection />*/}
       <JoinSection />
