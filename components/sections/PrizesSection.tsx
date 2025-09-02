@@ -16,7 +16,7 @@ export default function TracksSection() {
             <div className="flex md:w-1/2 flex-row grow gap-4 bg-white rounded-lg justify-center items-center">
                 <div className="flex flex-col items-start">
                     <div className="flex flex-col gap-2 ">
-                        <p className={`text-6xl font-semibold transition-opacity duration-300 ${isHoveringSecond || isHoveringThird ? 'opacity-30' : ''}`}>
+                        <p className={`text-3xl md:text-6xl font-semibold transition-opacity duration-300 ${isHoveringSecond || isHoveringThird ? 'opacity-30' : ''}`}>
                           <span className="text-yellow-400 font-bold text-2xl">1st.</span> 3000$
                         </p>
                         <p className={`text-normal transition-opacity duration-300 ${isHoveringSecond || isHoveringThird ? 'opacity-30' : ''}`}>
@@ -25,11 +25,11 @@ export default function TracksSection() {
                         <Separator className={`mt-4 bg-[#000091] transition-opacity duration-300 ${isHoveringFirst || isHoveringSecond || isHoveringThird ? 'opacity-30' : ''}`} />
                     </div>
                     <div className="flex h-28 items-center space-x-4 text-sm">
-                        <p className={`text-6xl font-semibold transition-opacity duration-300 ${isHoveringFirst || isHoveringThird ? 'opacity-30' : ''}`}>
+                        <p className={`text-3xl md:text-6xl font-semibold transition-opacity duration-300 ${isHoveringFirst || isHoveringThird ? 'opacity-30' : ''}`}>
                           <span className="text-gray-400 font-bold text-2xl">2nd.</span> 2000$
                         </p>
                         <Separator orientation="vertical" className={`bg-[#000091] transition-opacity duration-300 ${isHoveringFirst || isHoveringSecond || isHoveringThird ? 'opacity-30' : ''}`} />
-                        <p className={`text-6xl font-semibold transition-opacity duration-300 ${isHoveringFirst || isHoveringSecond ? 'opacity-30' : ''}`}>
+                        <p className={`text-3xl md:text-6xl font-semibold transition-opacity duration-300 ${isHoveringFirst || isHoveringSecond ? 'opacity-30' : ''}`}>
                           <span className="text-orange-400 font-bold text-2xl">3rd.</span> 1000$
                         </p>
                     </div>
