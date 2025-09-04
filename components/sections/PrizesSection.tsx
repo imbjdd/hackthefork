@@ -37,7 +37,7 @@ export default function TracksSection() {
             </div>
             <div className="hidden md:flex w-1/2 flex-row grow gap-4 bg-white rounded-lg items-end justify-center">
                 <div 
-                  className="w-20 h-20 bg-orange-400 rounded flex items-end justify-center text-white font-bold cursor-pointer"
+                  className={`w-20 h-20 bg-orange-400 rounded flex items-end justify-center text-white font-bold transition-opacity duration-300 cursor-pointer ${isHoveringSecond || isHoveringFirst ? 'opacity-30' : ''}`}
                   onMouseEnter={() => setIsHoveringThird(true)}
                   onMouseLeave={() => setIsHoveringThird(false)}
                 >
