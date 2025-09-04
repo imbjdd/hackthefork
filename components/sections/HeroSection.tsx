@@ -9,7 +9,7 @@ export default function HeroSection() {
           <div className="flex flex-col text-left gap-6">
             <h1 className="text-3xl md:text-6xl font-bold">Hack the Fork</h1>
             <h1 className="text-3xl md:text-6xl font-light italic -mt-6">AI solutions for the Future of Food</h1>
-            <p className="text-white font-normal text-xl">Hackathon organized by ICA with <span className="font-bold">150 builders</span> and <span className="font-bold">$6000</span> cash prize.</p>
+            <p className="text-white font-normal text-xl">Hackathon organized by ICA with <span className="font-bold">150 builders</span> and <span className="font-bold">€6,000</span> cash prize.</p>
             <p className="text-white font-normal text-xl -mt-6">Register now to join the best builders in the world.</p>
             <p className="text-xl font-bold text-white">Paris, France / 13-14 December 2025</p>
             <a href="https://lu.ma/6vtlc0y1" target="_blank" className="bg-white text-[#000091] font-bold px-6 py-2 rounded-lg w-fit cursor-pointer">Register Now</a>
