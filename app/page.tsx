@@ -3,7 +3,7 @@
 import Navbar from "@/components/sections/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import SponsoredBySection from "@/components/sections/SponsoredBySection";
-//import PlaceSection from "@/components/sections/PlaceSection";
+import PlaceSection from "@/components/sections/PlaceSection";
 import SpeakersSection from "@/components/sections/SpeakersSection";
 import FAQSection from "@/components/sections/FAQSection";
 import TracksSection from "@/components/sections/Tracks";
@@ -148,7 +148,7 @@ export default function Home() {
       {/*<ChallengeSection scrollProgress={scrollProgress} />*/}
       {/*<OrganizedBySection scrollYellowProgress={scrollYellowProgress} />*/}
       <SponsoredBySection sponsors={sponsors} />
-      {/*<PlaceSection />*/}
+      <PlaceSection />
       <SpeakersSection speakers={speakers} />
       <PrizesSection />
       <FAQSection />

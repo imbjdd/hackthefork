@@ -8,7 +8,7 @@ export default function PlaceSection() {
         <div className="overflow-hidden rounded-lg max-w-5xl w-full transition-transform duration-300">
           <Image
             className="rounded-lg w-full transition-transform duration-300 hover:scale-110"
-            src="/albertschool.jpg"
+            src="/ecole42.jpg"
             alt="Place"
             width={1000}
             height={1000}
@@ -16,7 +16,7 @@ export default function PlaceSection() {
         </div>
       </div>
       <p className="text-2xl max-w-4xl px-4 md:px-8 xl:px-12">
-        The event will most likely take place at <span className="font-bold text-[#000091]">Albert School</span> in Paris, France.
+        The event will take place at <span className="font-bold text-[#000091]">Ecole 42</span> in Paris, France.
       </p>
     </div>
   );

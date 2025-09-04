@@ -5,12 +5,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import TitleAnimation from '../TitleAnimation';
 
 export default function FAQSection() {
   return (
     <div id="faq" className="py-20 md:py-32 flex items-center justify-center gap-12">
       <div className="max-w-5xl w-full flex flex-col gap-4 px-4 md:px-8 xl:px-12">
-        <h1 className="text-2xl font-bold">FAQ</h1>
+        <TitleAnimation 
+            text="FAQ" 
+            className="text-2xl font-bold"
+        />
         <Accordion
           type="single"
           collapsible

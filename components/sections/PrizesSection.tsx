@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Separator } from "@/components/ui/separator"
+import TitleAnimation from '../TitleAnimation';
 
 export default function TracksSection() {
   const [isHoveringFirst, setIsHoveringFirst] = useState(false);
@@ -11,7 +12,10 @@ export default function TracksSection() {
   return (
     <div id="challenge" className="flex flex-col items-center justify-center gap-0 py-20 md:py-32">
       <div className="container px-4">
-      <h1 className="text-2xl font-bold">Prizes</h1>
+      <TitleAnimation 
+          text="Prizes" 
+          className="text-2xl font-bold"
+      />
         <div className="flex flex-col md:flex-row justify-between w-full gap-12 pt-8 text-left">
             <div className="flex md:w-1/2 flex-row grow gap-4 bg-white rounded-lg justify-center items-center">
                 <div className="flex flex-col items-start">

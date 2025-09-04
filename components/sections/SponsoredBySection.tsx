@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import TitleAnimation from '../TitleAnimation';
 
 export type Sponsor = {
   name: string;
@@ -12,7 +13,10 @@ export default function SponsoredBySection({ sponsors }: { sponsors: Sponsor[] }
   return (
     <div className="flex flex-col items-center justify-center gap-12 py-20 md:py-32 bg-blue-100">
       <div className="container flex flex-col gap-4 px-4 items-left">
-        <h1 className="text-2xl font-bold">Organizer</h1>
+        <TitleAnimation 
+          text="Organizer" 
+          className="text-2xl font-bold"
+        />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 pt-4">
             <div className="flex flex-col gap-4 items-center">
               <a href="https://www.institut-condition-animale.fr/" target="_blank">
@@ -30,7 +34,10 @@ export default function SponsoredBySection({ sponsors }: { sponsors: Sponsor[] }
               <p className="text-base md:text-lg font-semibold text-center">ICA</p>
             </div>
           </div>
-          <h1 className="text-2xl font-bold md:mt-8">Partners</h1>
+          <TitleAnimation 
+            text="Partners" 
+            className="text-2xl font-bold"
+          />
            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 pt-4">
             {sponsors
               .slice()
