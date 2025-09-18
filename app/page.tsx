@@ -80,12 +80,6 @@ export default function Home() {
       link: "https://www.sciencespo.fr/fr/ld be"
     },
     {
-      name: "SupBiotech",
-      image: "/supbiotech.png",
-      description: "Place partner",
-      link: "https://www.supbiotech.fr/"
-    },
-    {
       name: "AgroParisTech",
       image: "/agroparistech.png",
       description: "Place partner",
