@@ -35,7 +35,7 @@ export default function SponsoredBySection({ sponsors }: { sponsors: Sponsor[] }
             </div>
           </div>
           <TitleAnimation 
-            text="Partners" 
+            text="They're Involved" 
             className="text-2xl font-bold"
           />
            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 pt-4">

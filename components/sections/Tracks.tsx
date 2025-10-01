@@ -34,7 +34,7 @@ export default function TracksSection() {
             <div className="flex flex-col gap-4 bg-white rounded-lg">
                 <h2 className="text-lg font-bold">Product</h2>
                 <p>
-                    Design an innovative food product (algae-based, plant-based or cultivated meat) using AI to optimize ingredients, simulate textures, enhance nutritional value.
+                    Design an innovative food product (algae-based, plant-based, precision fermentation or cultivated meat) using AI to optimize ingredients, simulate textures, enhance nutritional value.
                 </p>
                 <p>
                     Leverage ingredient databases, formulation models, and predictive algorithms to design a viable and distinctive product

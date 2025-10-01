@@ -84,7 +84,43 @@ export default function Home() {
       image: "/agroparistech.png",
       description: "Place partner",
       link: "https://www.agroparistech.fr/"
-    }
+    },
+    {
+      name: "Land&Monkeys",
+      image: "/land.png",
+      description: "partner",
+      link: "https://www.land-and-monkeys.com/"
+    },
+    {
+      name: "Maison Boucand",
+      image: "/maison.png",
+      description: "partner",
+      link: "https://maison-boucand.bzh/"
+    },
+    {
+      name: "Telecom IA",
+      image: "/telecom_ia.jpeg",
+      description: "partner",
+      link: "https://www.linkedin.com/company/telecom-ia/posts/?feedView=all"
+    },
+    {
+      name: "Ovni Capital",
+      image: "/ovni.svg",
+      description: "partner",
+      link: "https://www.ovni.capital/"
+    },
+    {
+      name: "Carrefour",
+      image: "/Logo_Carrefour.svg",
+      description: "partner",
+      link: "https://www.carrefour.com/fr"
+    },
+    {
+      name: "La Vie",
+      image: "/La-Vie-Logo.png",
+      description: "partner",
+      link: "https://www.laviefoods.com/en/"
+    },
   ];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
