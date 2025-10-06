@@ -121,6 +121,18 @@ export default function Home() {
       description: "partner",
       link: "https://www.laviefoods.com/en/"
     },
+    {
+      name: "Heura",
+      image: "/heura.png",
+      description: "partner",
+      link: "https://heurafoods.com/fr/"
+    },
+    {
+      name: "SayFood",
+      image: "/sayfood.png",
+      description: "partner",
+      link: "https://umr-sayfood.versailles-saclay.hub.inrae.fr/"
+    }
   ];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
